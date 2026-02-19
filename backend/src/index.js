@@ -6,7 +6,7 @@ const PORT=3000;
 
 //ruta
 app.get('/',(req,res)=>{
-    res.send('Hello world');
+    res.send('ASDADASDASDASDAD');
 });
 
 app.listen(PORT,()=>{
