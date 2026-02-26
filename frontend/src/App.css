@@ -1,4 +1,8 @@
 @import 'tailwindcss';
 .fondo{
-    @apply  bg-[black] h-dvh
+    @apply 
+     bg-[black] 
+    text-white
+   
+
 }
