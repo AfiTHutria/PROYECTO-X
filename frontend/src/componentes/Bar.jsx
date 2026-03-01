@@ -12,7 +12,7 @@ export default function Bar() {
                 <div className=' flex flex-col flex-start text-[20px] font-stretch-extra-condensed gap-[10px] '>
                     <div className=' flex flex-start text-[20px] font-stretch-extra-condensed items-center gap-[10px]  '>
                         <img src={Logo} alt="" className=' h-[20px]  w-[20px]' />
-                        <button className='text-[white] h-[70px] w-[130px] text-left '>
+                        <button className=' focus: text-[white] h-[70px] w-[130px] text-left '>
                             Home
                         </button>
                     </div>
