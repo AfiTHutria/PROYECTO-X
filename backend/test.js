@@ -1,4 +1,4 @@
-import {supabase} from './supabase.js';
+import {supabase} from './src/infrastructure/Supabase/supabase.js';
 
 async function testSupabase(){
 

@@ -1,5 +1,5 @@
 import React from 'react'
-import LOGO from '../assents/LOGO_X.jpeg'
+import LOGO from '../assets/LOGO_X.jpeg'
 export default function Publicaciones() {
     return (
         <>
