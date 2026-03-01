@@ -3,6 +3,7 @@ import Bar from '../componentes/Bar.jsx'
 import Publicaciones from '../componentes/Publicaciones.jsx'
 import Publicacion from '../componentes/Publicacion.jsx'
 import Avisos from '../componentes/Avisos.jsx'
+
 export default function Home() {
   return (
     <div className='fondo flex'>
@@ -25,11 +26,6 @@ export default function Home() {
         </div>
       </div>
       <Avisos></Avisos>
-
-
-
-
-
     </div>
   )
 }
