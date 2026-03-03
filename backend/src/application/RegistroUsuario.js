@@ -5,10 +5,7 @@ export class RegistroUsuario {
     this.repo = repo;
   }
   async execute(UsuarioData) {
-    console.log("¿Qué hay dentro de this.repo?:", Object.keys(this.repo));
-    console.log("THIS COMPLETO:", this);
-    console.log("THIS.REPO:", this.repo);
-    console.log("TIPO:", typeof this.repo?.registrarUsuario);
+
     if (
       !UsuarioData.Nombre ||
       !UsuarioData.Telefono ||
