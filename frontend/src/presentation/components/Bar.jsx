@@ -1,31 +1,38 @@
 import React from 'react'
 import Logo from '../assets/LOGO_X.jpeg'
+import Amigo from '../assets/anadir.png'
+import Perfil from '../assets/usuario.png'
+import Casa from '../assets/casa.png'
+import More from '../assets/menu-puntos.png'
+import Lab from '../assets/tubo.png'
+import Mensaje from '../assets/chat.png'
+import Lupa from '../assets/Lupa.png'
 
 export default function Bar() {
     return (
         <>
-        {/* barra izquierda */}
+            {/* barra izquierda */}
             <main className='ml-[20%] mr-[30px]  mt-[30px] w-[200px] '>
-{/* loguito  izq  arriba */}
+                {/* loguito  izq  arriba */}
                 <img src={Logo} alt="" className=' h-[20px]  w-[20px] mb-[20px]' />
-{/*  */}
+                {/*  */}
                 <div className=' flex flex-col flex-start text-[20px] font-stretch-extra-condensed gap-[10px] '>
                     <div className=' flex flex-start text-[20px] font-stretch-extra-condensed items-center gap-[10px]  '>
-                        <img src={Logo} alt="" className=' h-[20px]  w-[20px]' />
-                        <button className='text-[white] h-[70px] w-[130px] text-left '>
+                        <img src={Casa} alt="" className=' h-[30px]  w-[30px]' />
+                        <button className=' focus: text-[white] h-[70px] w-[130px] text-left '>
                             Home
                         </button>
                     </div>
 
                     <div className=' flex  flex-start text-[20px] font-stretch-extra-condensed  items-center gap-[10px]'>
-                        <img src={Logo} alt="" className=' h-[20px]  w-[20px]' />
+                        <img src={Lupa} alt="" className=' h-[30px]  w-[30px] ' />
                         <button className='text-[white]  h-[70px] w-[130px]text-left'>
                             Explore
                         </button>
                     </div>
 
                     <div className=' flex  flex-start text-[20px] font-stretch-extra-condensed  items-center gap-[10px] '>
-                        <img src={Logo} alt="" className=' h-[20px]  w-[20px]' />
+                        <img src={Amigo} alt="" className=' h-[30px]  w-[30px]' />
                         <button className='text-[white]  h-[70px] w-[130px] text-left'>
                             Follow
                         </button>
@@ -34,28 +41,28 @@ export default function Bar() {
 
                     <div className=' flex  flex-start text-[20px] font-stretch-extra-condensed  items-center   gap-[10px]'>
 
-                        <img src={Logo} alt="" className=' h-[20px]  w-[20px]  ' />
+                        <img src={Mensaje} alt="" className=' h-[30px]  w-[30px]  ' />
                         <button className='text-[white]  h-[70px] w-[130px]text-left'>
                             Chat
                         </button>
                     </div>
 
                     <div className=' flex  flex-start text-[20px] font-stretch-extra-condensed items-center  gap-[10px]  '>
-                        <img src={Logo} alt="" className=' h-[20px]  w-[20px]' />
+                        <img src={Lab} alt="" className=' h-[30px]  w-[30px]' />
                         <button className=' text-[white]  h-[70px] w-[130px]text-left'>
                             Creator Studio
                         </button>
                     </div>
 
                     <div className=' flex  flex-start text-[20px] font-stretch-extra-condensed items-center  gap-[10px]'>
-                        <img src={Logo} alt="" className=' h-[20px]  w-[20px]' />
+                        <img src={Logo} alt="" className=' h-[30px]  w-[30px]' />
                         <button className='text-[white]  h-[70px] w-[130px]text-left'>
                             Premiun
                         </button>
                     </div>
 
                     <div className=' flex flex-start text-[20px] font-stretch-extra-condensed items-center  gap-[10px]'>
-                        <img src={Logo} alt="" className=' h-[20px]  w-[20px]' />
+                        <img src={Perfil} alt="" className=' h-[30px]  w-[30px]' />
                         <button className='text-[white]  h-[70px] w-[130px]text-left'>
                             Profile
                         </button>
@@ -63,7 +70,7 @@ export default function Bar() {
 
 
                     <div className=' flex  flex-start text-[20px] font-stretch-extra-condensed  items-center  gap-[10px]'>
-                        <img src={Logo} alt="" className=' h-[20px]  w-[20px]' />
+                        <img src={More} alt="" className=' h-[30px]  w-[30px] rotate-90' />
                         <button className='text-[white]  h-[70px] w-[130px]text-left'>
                             More
                         </button>
@@ -74,9 +81,9 @@ export default function Bar() {
                         <button className='text-[black] bg-white rounded-full h-[70px] w-[200px]' >Post</button>
                     </button>
                 </div>
-{/* boton  postear */}
+                {/* boton  postear */}
                 <div className=' mt-[40px]' >
-                    <button  className='  text-white flex items-center h-[70px]w[200px] gap-[10px]'>
+                    <button className='  text-white flex items-center h-[70px]w[200px] gap-[10px]'>
                         <img src={Logo} alt="" className=' h-[30px]  w-[30px] rounded-full' />
                         {/* usuario izq abajo */}
                         <div>
