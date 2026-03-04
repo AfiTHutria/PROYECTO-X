@@ -20,7 +20,7 @@ export default function RegistroVista() {
     return (
         <>
             <div className="flex flex-col">
-                <div className=" flex h-[600px] ">
+                <div className=" flex h-[100px]  ">
                     {/* imagen LOGO X */}
                     <div className=" mt-[300px] ml-[400px] ">
                         <img src={LOGO} alt="" className=" w-[300px] h-[300px] overflow-auto " />
@@ -98,8 +98,8 @@ export default function RegistroVista() {
 
                     </div>
                 </div>
-                <div  >
-                    <h1 className=" text-gray-600 text-[12px] w-[100%]  mt-[300px] ml-[80px] ">
+                <div className="h-[20px]  ">
+                    <h1 className=" text-gray-600 text-[12px] w-[100%] h-[20px] mt-[300px] ml-[80px] ">
                         Información
                         |
                         Descarga la app de X
