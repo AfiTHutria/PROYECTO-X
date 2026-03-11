@@ -36,7 +36,7 @@ export default function Login() {
                     <p>¿Ya tienes una cuenta? </p>
                 </div>
                 <div className="login">
-                    <Button label="Iniciar sesión" onClick={() => { navigate("/home") }} variant="secondary" type="button" />
+                    <Button label="Iniciar sesión" onClick={() => { navigate("/login", { state: { background: location } }) }} variant="secondary" type="button" />
                 </div>
             </section>
 
