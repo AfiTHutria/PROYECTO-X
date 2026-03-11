@@ -36,4 +36,4 @@ dist-ssr/
 backend/.env
 
 # Ignorar carpetas de Visual
-Visual-Studio-code
+.vscode
