@@ -1,11 +1,12 @@
 import './login.css';
-import { useNavigate} from "react-router-dom";
+import { useNavigate, useLocation} from "react-router-dom";
 import Button from "../components/Button.jsx";
 import LOGO_X from '../assets/LOGO_X.jpeg';
 
 
 
 export default function Login() {
+    const location= useLocation();
     const navigate = useNavigate();
     return (
         <div className="General">
@@ -26,7 +27,7 @@ export default function Login() {
                 <p>-------------------------O----------------------------</p>
             </div>
             <div className="reg-db">
-                <Button label="Crear cuenta" onClick={()=> {navigate("/registro")}} variant="primary" type="button"/>   
+                <Button label="Crear cuenta" onClick={()=> {navigate("/registro",{state: {background: location}})}} variant="primary" type="button"/>   
             </div>
             <div className="privacy">
                 Al registrarte, aceptas nuestras condiciones de uso y política de privacidad, incluida la política de uso de cookies. Es posible que te enviemos correos electrónicos con actualizaciones, ofertas y otra información relacionada con el servicio. Puedes darte de baja de estos correos electrónicos en cualquier momento.
