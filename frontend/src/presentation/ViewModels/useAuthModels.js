@@ -25,6 +25,8 @@ export function useAuthModels(usuarioRepository) {
     }
   }
 
+  
+
   {/* Funcion para Consumir api de Registro de usuario*/}
   const handleRegistro = async (UsuarioData) => {
     setLoading(true);
@@ -45,7 +47,7 @@ export function useAuthModels(usuarioRepository) {
     error,
     success,
     handleRegistro,
-    handleLogin,
+    handleLogin
   };
 }
 

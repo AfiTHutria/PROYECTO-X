@@ -1,17 +1,27 @@
-import React from 'react'
+import React, { useState } from 'react'
 import Button from '../components/Button'
 import LOGO from '../assets/LOGO_X.jpeg'
+import { useAuthModels } from '../ViewModels/useAuthModels';
 import { Navigate, useNavigate } from "react-router-dom";
 export default function VistaInicio() {
-
-    {/*
-     const { loading, error, success, handleRegistro } = useAuthModels();
-     const [formData, setFormData] = useState({
-        Correo: '',
-        Contraseña: ''});
-    */}
     const navigate = useNavigate(); 
 
+     const { loading, error, success, handleLogin } = useAuthModels();
+    const [formData,setFormData]= useState({
+        Email: '',
+        Contraseña:''
+    });
+    
+
+    const onSubmit = async  (e) =>{
+        e.preventDefault();
+        const resultado=await handleLogin(formData);
+        if(resultado){
+            navigate("/home")
+        }
+    }
+
+  
     return (
 
         <>
@@ -26,12 +36,16 @@ export default function VistaInicio() {
                         <h2 ><strong>Inicia Sesión</strong></h2>
                     </div>
                     <div>
-                        <form action="" method="post">
+                        {error && <p className="error-message">{error}</p>}
+                        {success && <p className="success-message"></p>}
+                        <form onSubmit={onSubmit}>
                             <div className="continps" >
 
                                 <input className="inp"
                                     type="text"
                                     placeholder="Correo"
+                                    value={formData.Email}
+                                    onChange={(e)=> setFormData({...formData, Email: e.target.value})}
 
                                 />
                                 <span className="contador">
@@ -43,18 +57,19 @@ export default function VistaInicio() {
                                 <input className="inp"
                                     type="password"
                                     placeholder="Contraseña"
-
+                                    value={formData.Contraseña}
+                                    onChange={(e)=> setFormData({...formData, Contraseña: e.target.value})}
                                 />
                                 <span className="contador">
                                     0/8
                                 </span>
                             </div>
                             {/* btn de enviado */}
-                            {/* <div className="btnenviar mt-[30px]  f">
+                            <div className="btnenviar mt-[30px]  f">
                                 <button className="enviar bg-white rounded-full text-[black]  " type="submit" disabled={loading}>
                                     {loading ? "Iniciando sesion..." : "Iniciar Sesion"}
                                 </button>
-                            </div> */}
+                            </div> 
                         </form>
 
                     </div>
