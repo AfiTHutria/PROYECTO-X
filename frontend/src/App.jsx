@@ -1,13 +1,14 @@
 import React from "react";
 import { useState } from "react";
-import { Routes, Route,useNavigate, useLocation } from "react-router-dom";
+import { Routes, Route, useNavigate, useLocation } from "react-router-dom";
 import Home from "./presentation/pages/Home.jsx";
 import "../src/App.css";
 import Registro from "./presentation/pages/Registro.jsx";
 import Login from "./presentation/pages/Login.jsx";
+import Inicio from "./presentation/pages/Inicio.jsx";
 
 export default function App() {
-  const location= useLocation();
+  const location = useLocation();
   const background = location.state && location.state.background;
   return (
     <>
@@ -16,10 +17,12 @@ export default function App() {
         <Route path="/home" element={<Home></Home>} />
         <Route path="/registro" element={<Registro></Registro>} />
         <Route path="/login" element={<Login></Login>} />
+        <Route path="/inicio" element={<Inicio></Inicio>} />
       </Routes>
 
       {background && (
         <Routes>
+          <Route path="/inicio" element={<Inicio></Inicio>} />
           <Route path="/registro" element={<Registro></Registro>} />
         </Routes>
       )}
