@@ -1,5 +1,6 @@
 import React from "react";
-import { Routes, Route, useLocation } from "react-router-dom";
+import { useState } from "react";
+import { Routes, Route,useNavigate, useLocation } from "react-router-dom";
 import Home from "./presentation/pages/Home.jsx";
 import "../src/App.css";
 import Registro from "./presentation/pages/Registro.jsx";
