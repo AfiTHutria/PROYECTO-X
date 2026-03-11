@@ -6,8 +6,26 @@ export function useAuthModels(usuarioRepository) {
   const [error, setError] = useState(null);
   const [success, setSuccess] = useState(false);
 
+  
+
   const authRepository = new ApiAuthRepository(usuarioRepository);
 
+  {/*Funcion para consumir la api del backend*/} 
+  const handleLogin = async (Credenciales) => {
+    setLoading(true);
+    setError(null);
+    try{
+     const result = await authRepository.Login(Credenciales); 
+     setSuccess(true);
+     return result;
+    }catch(err){
+      setError(err.message);
+    }finally{
+      setLoading(false);
+    }
+  }
+
+  {/* Funcion para Consumir api de Registro de usuario*/}
   const handleRegistro = async (UsuarioData) => {
     setLoading(true);
     setError(null);
@@ -27,5 +45,7 @@ export function useAuthModels(usuarioRepository) {
     error,
     success,
     handleRegistro,
+    handleLogin,
   };
 }
+

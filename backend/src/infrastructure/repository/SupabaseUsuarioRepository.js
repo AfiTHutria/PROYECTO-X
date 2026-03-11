@@ -1,6 +1,8 @@
 import { supabase } from "../Supabase/supabase.js";
 
 export class SupabaseUsuarioRepository {
+
+    // Aplicacion de caso de uso de RegistroUsuario para registrar parametros en base de Datos
     async registrarUsuario(usuario) {
         const {data,error} = await supabase 
         .from('usuarios') 
@@ -13,7 +15,7 @@ export class SupabaseUsuarioRepository {
                 Contraseña: usuario.Contraseña
             }
         ])
-        .select().single();
+        .select()
 
         if(error){
             if(error.code === '23505'){
@@ -24,17 +26,26 @@ export class SupabaseUsuarioRepository {
         return data;
     }
     
-    async findByEmail(email){
-        const {data,error} = await supabase 
-        .from('usuarios') 
+    // Verificacion de email y constraseña con respecto el caso de uso Login usuario 
+
+    async Login(usuario){
+        const {data,error} =await supabase
+
+        .from('usuarios')
         .select('*')
-        .eq('Email', email)
+        .eq('Email', usuario.Email)
+        .eq('Contraseña', usuario.Contraseña)
         .single();
 
         if(error && error.code !== 'PGRST116'){
-            throw new Error(error.message);
+            throw new Error (error.message);
         }
-        return data;
+
+        if(!data){
+            throw new Error("El correo o la contraseña son incorrectos");
+        }
+        return data
     }
-        
+    
+    
 }

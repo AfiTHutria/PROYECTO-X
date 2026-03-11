@@ -19,4 +19,20 @@ export class AuthControllers {
             });
         }
     }
+    Login = async(req, res) => {
+        try{
+            const {Email, Contraseña} = req.body;
+            const Usuario = await this.loginUsuario.execute({Email, Contraseña});
+            res.status(200).json({
+                succes: true,
+                data: Usuario
+            });
+        }
+        catch (error){
+            res.status(400).json({
+                succes: false,
+                message: error.message
+            });
+        }
+    }
 }

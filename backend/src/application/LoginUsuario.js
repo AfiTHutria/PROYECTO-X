@@ -8,7 +8,7 @@ export class LoginUsuario {
             throw new Error('Todos los campos son obligatorios');
         }
         const usuario = await this.usuarioRepository.Login(Credenciales);
-
+        
         return usuario;
     }
 }
