@@ -1,9 +1,11 @@
 import React, { useState } from "react";
 import { useAuthModels } from "../ViewModels/useAuthModels";
 import LOGO from '../assets/LOGO_X.jpeg'
-import '../components/RV.css';
+import styles from './RV.module.css';
 import Button from "./Button";
 import { Navigate, useNavigate } from "react-router-dom";
+
+
 export default function RegistroVista() {
   const navigate= useNavigate();
     const { loading, error, success, handleRegistro } = useAuthModels();
@@ -22,50 +24,50 @@ export default function RegistroVista() {
 
     return (
         <>
-            <div id="overlay" class="overlay">
-                <div class="modal">
-                    <div className="encabezado " >
+            <div id="overlay" class={styles.overlay}>
+                <div class={styles.modal}>
+                    <div className={styles.encabezado} >
                         {/* cerrar ventanita */}
-                        <Button label="X" onClick={() => {navigate("/") }} variant="cerrar" type="button" />
-                        <img src={LOGO} alt="" className=" h-[30px] w-[30px] mx-[90px] " />
+                        <Button label="X" onClick={() => {navigate("/") }} variant="cerrar" type="button" styles={styles}/>
+                        <img src={LOGO} alt="" className={styles.logo} />
                     </div>
-                    <div className="titulo text-[30px]  mt-[40px] ml-[10px] ">
+                    <div className={styles.titulo}>
                         <h2 ><strong>Crea Tu Cuenta</strong></h2>
                     </div>
 
 
 
                     {/* formulario */}
-                    <div className="formulario" >
+                    <div className={styles.formulario} >
 
                         <form onSubmit={onSubmit}>
-                            <div className="continps" >
+                            <div className={styles.continps} >
 
-                                <input className="inp"
+                                <input className={styles.inp}
                                     type="text"
                                     placeholder="Nombre"
                                     value={formData.Nombre}
                                     onChange={(e) => setFormData({ ...formData, Nombre: e.target.value })}
                                 />
-                                <span className="contador">
+                                <span className={styles.contador}>
                                     0/50
                                 </span>
                             </div>
-                            <div className="continps" >
+                            <div className={styles.continps} >
                                 <input
-                                    className="inp"
+                                    className={styles.inp}
                                     type="tel"
                                     placeholder="Teléfono"
                                     value={formData.Telefono}
                                     onChange={(e) => setFormData({ ...formData, Telefono: e.target.value })}
                                 />
-                                <span className="contador">
+                                <span className={styles.contador}>
                                     0/50
                                 </span>
                             </div>
                             <div  >
 
-                                <input className=" inp"
+                                <input className={styles.inp}
                                     type="date"
                                     placeholder="Fecha de Nacimiento"
                                     value={formData.FechaNacimiento}
@@ -73,32 +75,32 @@ export default function RegistroVista() {
                                 />
 
                             </div>
-                            <div className="continps" >
-                                <input className="inp"
+                            <div className={styles.continps} >
+                                <input className={styles.inp}
                                     type="email"
                                     placeholder="Email"
                                     value={formData.Email}
                                     onChange={(e) => setFormData({ ...formData, Email: e.target.value })}
                                 />
-                                <span className="contador">
+                                <span className={styles.contador}>
                                     0/50
                                 </span>
                             </div>
-                            <div className="continps" >
-                                <input className="inp"
+                            <div className={styles.continps} >
+                                <input className={styles.inp}
                                     type="password"
                                     placeholder="Contraseña"
                                     value={formData.Contraseña}
                                     onChange={(e) => setFormData({ ...formData, Contraseña: e.target.value })}
                                 />
-                                <span className="contador">
+                                <span className={styles.contador}>
                                     0/8
                                 </span>
                             </div >
 
                             {/* btn de enviado */}
-                            <div className="btnenviar mt-[30px]  f">
-                                <button className="enviar bg-white rounded-full text-[black]  " type="submit" disabled={loading}>
+                            <div className={styles.btnenviar} >
+                                <button className={styles.enviar} type="submit" disabled={loading}>
                                     {loading ? "Registrando..." : "Registrar"}
                                 </button>
                             </div>
