@@ -1,0 +1,83 @@
+
+
+.cajadepublicacion {
+    
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start; /* mantiene todo arriba */
+  
+  max-height: 300px; /* ajusta según quieras */
+  overflow: hidden;  /* evita que se desborde */
+  padding: 10px;
+  border: 1px solid #454242;
+}
+
+
+.btn {
+    width: auto;
+    height:fit-content; 
+}
+/* boton de me gusta */
+
+.like{
+    
+    border: none;
+    padding: 0.2px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.2s ease;
+    width: 1;
+}
+.like:hover {
+    transform: scale(1.1);
+    filter: brightness(1.2);
+    color: red;
+}
+
+.btrepost{
+    border-radius: 99999999px;
+}
+.btrepost:hover{
+    background-color: rgba(48, 120, 48, 0.455);
+}
+
+/* boton de repostear */
+.repost{
+    border: none;
+    padding: 0.2px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.2s ease;
+    width: 1;
+}
+
+.repost:hover {
+    transform: scale(1.1);
+    filter: brightness(1.2);
+    color: green;
+}
+
+.icons{
+    display: flex;
+    align-items: center;   /* alinea verticalmente */
+    gap: 15px; 
+    position:sticky;
+    bottom: 0;
+    
+}   
+.icons > * {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  padding: 8px 0;
+}
+
+
+
+
+
+
