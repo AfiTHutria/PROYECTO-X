@@ -1,0 +1,31 @@
+.btn {
+    width: auto;
+    height:fit-content; 
+}
+.btn-like{
+    background-color: white;
+    border: none;
+    padding: 0.2px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.2s ease;
+    width: 1;
+}
+.btn-like:hover {
+    transform: scale(1.1);
+    filter: brightness(1.2);
+}
+
+
+
+.like{
+    color: white;
+}
+.like:hover{
+    color:red;
+}
+.like:active{
+    color:  red;
+}

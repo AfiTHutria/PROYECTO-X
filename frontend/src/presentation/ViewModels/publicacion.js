@@ -1,5 +1,5 @@
 
 
-export function Publicar(){
+export function Publicar(){ 
 
 }

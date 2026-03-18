@@ -10,19 +10,11 @@ export default function Home() {
       <Bar></Bar>
 
       <div>
+        
         <Publicaciones></Publicaciones>
         <div className="h-[700px] overflow-y-auto scrollbar-hide mt-[20px]">
           <Publicacion></Publicacion>
-          <Publicacion></Publicacion>
-          <Publicacion></Publicacion>
-          <Publicacion></Publicacion>
-          <Publicacion></Publicacion>
-          <Publicacion></Publicacion>
-          <Publicacion></Publicacion>
-          <Publicacion></Publicacion>
-          <Publicacion></Publicacion>
-          <Publicacion></Publicacion>
-          <Publicacion></Publicacion>
+          
         </div>
       </div>
       <Avisos></Avisos>
