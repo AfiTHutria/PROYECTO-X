@@ -1,82 +1,100 @@
-
-
 .cajadepublicacion {
-    
+  display: flex; 
+  flex-direction: row; 
+  gap: 20px;
+
+  padding: 20px;
+  border: 1px solid #2f3336;
+}
+
+/* COLUMNA IZQUIERDA */
+.parteIzquierda {
+  flex-shrink: 0;
+  display: flex;
+  align-items: flex-start; /* avatar arriba */
+}
+
+/* COLUMNA DERECHA */
+.parteDerecha {
   display: flex;
   flex-direction: column;
-  justify-content: flex-start; /* mantiene todo arriba */
-  
-  max-height: 300px; /* ajusta según quieras */
-  overflow: hidden;  /* evita que se desborde */
-  padding: 10px;
-  border: 1px solid #454242;
+  width: 100%;
 }
 
-
-.btn {
-    width: auto;
-    height:fit-content; 
-}
-/* boton de me gusta */
-
-.like{
-    
-    border: none;
-    padding: 0.2px;
-    cursor: pointer;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    transition: all 0.2s ease;
-    width: 1;
-}
-.like:hover {
-    transform: scale(1.1);
-    filter: brightness(1.2);
-    color: red;
-}
-
-.btrepost{
-    border-radius: 99999999px;
-}
-.btrepost:hover{
-    background-color: rgba(48, 120, 48, 0.455);
-}
-
-/* boton de repostear */
-.repost{
-    border: none;
-    padding: 0.2px;
-    cursor: pointer;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    transition: all 0.2s ease;
-    width: 1;
-}
-
-.repost:hover {
-    transform: scale(1.1);
-    filter: brightness(1.2);
-    color: green;
-}
-
-.icons{
-    display: flex;
-    align-items: center;   /* alinea verticalmente */
-    gap: 15px; 
-    position:sticky;
-    bottom: 0;
-    
-}   
-.icons > * {
-  flex: 1;
+/* HEADER */
+.perfil {
   display: flex;
-  justify-content: center;
-  padding: 8px 0;
+  gap: 10px;
 }
 
+.fotodeperfil {
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  border: 2px solid white;
+  object-fit: cover;
+}
 
+.userInfo {
+  display: flex;
+  flex-direction: column;
+}
+
+.name {
+  font-weight: bold;
+  color: white;
+}
+
+.username {
+  color: #71767b;
+  font-size: 14px;
+}
+
+/* TEXTO */
+.content {
+  font-size: 15px;
+  color: #e7e9ea;
+  line-height: 1.4;
+}
+
+/* IMAGEN */
+.media img {
+  width: 100%;
+  border-radius: 16px;
+  margin-top: 5px;
+}
+
+/* ICONOS */
+.icons {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 20px;
+}
+
+.icons button {
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  color: #71767b;
+  transition: 0.2s;
+}
+
+.icons svg {
+  width: 23px;
+  height: 23px;
+}
+
+/* HOVER */
+.icons button:hover {
+  color: #1d9bf0;
+  transform: scale(1.1);
+  filter: brightness(1.2);
+}
+
+/* LIKE */
+.like:hover {
+  color: red;
+}
 
 
 

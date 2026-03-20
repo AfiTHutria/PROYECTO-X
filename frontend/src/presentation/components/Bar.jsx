@@ -1,100 +1,82 @@
 import React from 'react'
 import Logo from '../assets/LOGO_X.jpeg'
-import Amigo from '../assets/anadir.png'
-import Perfil from '../assets/usuario.png'
-import Casa from '../assets/casa.png'
-import More from '../assets/menu-puntos.png'
 import Lab from '../assets/tubo.png'
-import Mensaje from '../assets/chat.png'
-import Lupa from '../assets/Lupa.png'
-
+import {RiHome2Line} from "react-icons/ri";
+import {CiSearch} from "react-icons/ci";
+import {IoNotificationsOutline} from "react-icons/io5";
+import {IoPersonAddOutline} from "react-icons/io5";
+import {LuMail} from "react-icons/lu";
+import {IoPersonOutline} from "react-icons/io5";
+import {SlOptions} from "react-icons/sl";
+import Button from './Button';
 export default function Bar() {
     return (
         <>
             {/* barra izquierda */}
             <main className='ml-[20%] mr-[30px]  mt-[30px] w-[200px] '>
                 {/* loguito  izq  arriba */}
-                <img src={Logo} alt="" className=' h-[20px]  w-[20px] mb-[20px]' />
-                {/*  */}
-                <div className=' flex flex-col flex-start text-[20px] font-stretch-extra-condensed gap-[10px] '>
-                    <div className=' flex flex-start text-[20px] font-stretch-extra-condensed items-center gap-[10px]  '>
-                        <img src={Casa} alt="" className=' h-[30px]  w-[30px]' />
-                        <button className=' focus: text-[white] h-[70px] w-[130px] text-left '>
-                            Home
-                        </button>
+               <div className='flex flex-col gap-[12px]'>
+
+                    {/* HOME */}
+                    <div className='flex items-center gap-[12px]'>
+                        <RiHome2Line size={28} />
+                        <button className='text-white text-[18px]'>Home</button>
                     </div>
 
-                    <div className=' flex  flex-start text-[20px] font-stretch-extra-condensed  items-center gap-[10px]'>
-                        <img src={Lupa} alt="" className=' h-[30px]  w-[30px] ' />
-                        <button className='text-[white]  h-[70px] w-[130px]text-left'>
-                            Explore
-                        </button>
+                    {/* EXPLORAR */}
+                    <div className='flex items-center gap-[12px]'>
+                        <CiSearch size={28} />
+                        <button className='text-white text-[18px]'>Explorar</button>
                     </div>
 
-                    <div className=' flex  flex-start text-[20px] font-stretch-extra-condensed  items-center gap-[10px] '>
-                        <img src={Amigo} alt="" className=' h-[30px]  w-[30px]' />
-                        <button className='text-[white]  h-[70px] w-[130px] text-left'>
-                            Follow
-                        </button>
+                    {/* NOTIFICACIONES */}
+                    <div className='flex items-center gap-[12px]'>
+                        <IoNotificationsOutline size={28} />
+                        <button className='text-white text-[18px]'>Notificaciones</button>
                     </div>
 
-
-                    <div className=' flex  flex-start text-[20px] font-stretch-extra-condensed  items-center   gap-[10px]'>
-
-                        <img src={Mensaje} alt="" className=' h-[30px]  w-[30px]  ' />
-                        <button className='text-[white]  h-[70px] w-[130px]text-left'>
-                            Chat
-                        </button>
+                    {/* SEGUIR */}
+                    <div className='flex items-center gap-[12px]'>
+                        <IoPersonAddOutline size={28} />
+                        <button className='text-white text-[18px]'>Seguir</button>
                     </div>
 
-                    <div className=' flex  flex-start text-[20px] font-stretch-extra-condensed items-center  gap-[10px]  '>
-                        <img src={Lab} alt="" className=' h-[30px]  w-[30px]' />
-                        <button className=' text-[white]  h-[70px] w-[130px]text-left'>
-                            Creator Studio
-                        </button>
+                    {/* CHAT */}
+                    <div className='flex items-center gap-[12px]'>
+                        <LuMail size={28} />
+                        <button className='text-white text-[18px]'>Chat</button>
                     </div>
 
-                    <div className=' flex  flex-start text-[20px] font-stretch-extra-condensed items-center  gap-[10px]'>
-                        <img src={Logo} alt="" className=' h-[30px]  w-[30px]' />
-                        <button className='text-[white]  h-[70px] w-[130px]text-left'>
-                            Premiun
-                        </button>
+                    {/* CREATOR STUDIO (IMAGEN) */}
+                    <div className='flex items-center gap-[12px]'>
+                        <img src={Lab} alt="" className='h-[28px] w-[28px]' /> 
+                        <button className='text-white text-[18px]'>Creator Studio</button>
                     </div>
 
-                    <div className=' flex flex-start text-[20px] font-stretch-extra-condensed items-center  gap-[10px]'>
-                        <img src={Perfil} alt="" className=' h-[30px]  w-[30px]' />
-                        <button className='text-[white]  h-[70px] w-[130px]text-left'>
-                            Profile
-                        </button>
+                    {/* X PREMIUM (IMAGEN) */}
+                    <div className='flex items-center gap-[12px]'>
+                        <img src={Logo} alt="" className='h-[28px] w-[28px]' />
+                        <button className='text-white text-[18px]'>Premium</button>
                     </div>
 
-
-                    <div className=' flex  flex-start text-[20px] font-stretch-extra-condensed  items-center  gap-[10px]'>
-                        <img src={More} alt="" className=' h-[30px]  w-[30px] rotate-90' />
-                        <button className='text-[white]  h-[70px] w-[130px]text-left'>
-                            More
-                        </button>
+                    {/* PERFIL */}
+                    <div className='flex items-center gap-[12px]'>
+                        <IoPersonOutline size={28} />
+                        <button className='text-white text-[18px]'>Perfil</button>
                     </div>
-                </div>
-                <div className='mt-[30px]'>
-                    <button>
-                        <button className='text-[black] bg-white rounded-full h-[70px] w-[200px]' >Post</button>
-                    </button>
-                </div>
-                {/* boton  postear */}
-                <div className=' mt-[40px]' >
-                    <button className='  text-white flex items-center h-[70px]w[200px] gap-[10px]'>
-                        <img src={Logo} alt="" className=' h-[30px]  w-[30px] rounded-full' />
-                        {/* usuario izq abajo */}
-                        <div>
-                            <h1>  usuario  nombre</h1>
-                            <p>@usuarioX</p>
-                        </div>
 
-                    </button>
+                    {/* MÁS OPCIONES */}
+                    <div className='flex items-center gap-[12px]'>
+                        <SlOptions size={28} />
+                        <button className='text-white text-[18px]'>Más opciones</button>
+                    </div>
+
                 </div>
             </main>
 
         </>
+       
     )
 }
+
+

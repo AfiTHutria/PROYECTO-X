@@ -1,51 +1,72 @@
-import './publicacion.module.css'
+
 import Button from './Button';
-import {Heart, RepeatAlt, MessageCircleReply, BarChart, Bookmark, ArrowFromBottom} from '@boxicons/react';
+import {CiHeart} from "react-icons/ci";
+import {LuRepeat2} from "react-icons/lu";
+import {FiMessageCircle} from "react-icons/fi";
+import {BiBarChart} from "react-icons/bi";
+import {MdOutlineLabel} from "react-icons/md";
+import {FiShare}  from "react-icons/fi";
 import styles from './publicacion.module.css'
 
 export default function Publicacion() {
-    
-
-
-
 
     return (
-        <div className={styles.cajadepublicacion}>
+  <section className={styles.cajadepublicacion}>
 
-            <div className={styles.perfil}>
-                <img src="https://pbs.twimg.com/profile_images/1616598736094417920/1n9s8XoL_400x400.jpg" alt="Foto de perfil" className={styles.fotodeperfil} />
-                <div className={styles.nombreusuario}>
-                    <p><strong>Usuario</strong></p>
-                    <p>@usuario</p>
-                </div>
-            </div>
-            
-            <section className={styles.texto}>
-                <p>hola </p>
-            </section>
+    {/* IZQUIERDA (avatar) */}
+    <div className={styles.parteIzquierda}>
+      <img 
+        src="https://pbs.twimg.com/profile_images/1616598736094417920/1n9s8XoL_400x400.jpg"  
+        alt="Foto de perfil" 
+        className={styles.fotodeperfil}
+      />
+    </div>
 
-            <section className={styles.icons}>
-                <div>
-                    <Button label= {<Heart className={styles.like}/>} type= "button" onClick={() => { navigate("/registro") }} variant='like' styles={styles} />
-                </div>
-                <div>
-                    <Button label= {<RepeatAlt className={styles.repost}/>} type= "button" onClick={() => { navigate("/registro") }} variant='btrepost' styles={styles} />
-                </div>
-                <div>
-                    <Button label= {<MessageCircleReply className='reply'/>} type= "button" onClick={() => { navigate("/registro") }} variant='reply' styles={styles} />
-                </div>
-                <div>
-                    <Button label= {<BarChart className='chart'/>} type= "button" onClick={() => { navigate("/registro") }} variant='chart' styles={styles} />
-                </div>
-                <div>
-                    <Button label= {<Bookmark className='bookmark'/>} type= "button" onClick={() => { navigate("/registro") }} variant='bookmark' styles={styles} />
-                </div>
-                <div>
-                    <Button label= {<ArrowFromBottom className='share'/>} type= "button" onClick={() => { navigate("/registro") }} variant='share' styles={styles} />
-                </div>
-            </section>
+    {/* DERECHA (todo lo demás) */}
+    <div className={styles.parteDerecha}>
+
+      <div className={styles.userInfo}>
+        <span className={styles.name}>Usuario</span>
+        <span className={styles.username}>@usuario · 5h</span>
+      </div>
+
+      <div className={styles.content}>
+        <p>
+          TUNOMETEKBRASARAMBICHE😭😭
+        </p>
+      </div>
+
+      <div className={styles.media}>
+        <img 
+          src="https://pbs.twimg.com/media/FakeImage.jpg" 
+          alt="post" 
+        />
+      </div>
+
+      <div className={styles.icons}>
+        <div>
+          <Button label={<CiHeart className={styles.like}/>} variant='btlike' />
         </div>
-        
-         
-    )
+        <div>
+          <Button label={<LuRepeat2 className={styles.repost}/>} variant='btrepost' />
+        </div>
+        <div>
+          <Button label={<FiMessageCircle className={styles.mensaje}/>} variant='btmensaje' />
+        </div>
+        <div>
+          <Button label={<BiBarChart className={styles.reproducciones}/>} variant='btreproducciones' />
+        </div>
+        <div>
+          <Button label={<MdOutlineLabel className={styles.marcador}/>} variant='btmarcador' />
+        </div>
+        <div>
+          <Button label={<FiShare className={styles.compartir}/>} variant='btcompartir' />
+        </div>
+      </div>
+
+    </div>
+
+  </section>
+)     
+
 }
