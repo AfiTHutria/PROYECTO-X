@@ -10,7 +10,7 @@ export function useAuthModels(usuarioRepository) {
 
   const authRepository = new ApiAuthRepository(usuarioRepository);
 
-  {/*Funcion para consumir la api del backend*/} 
+  
   const handleLogin = async (Credenciales) => {
     setLoading(true);
     setError(null);
@@ -27,7 +27,7 @@ export function useAuthModels(usuarioRepository) {
 
   
 
-  {/* Funcion para Consumir api de Registro de usuario*/}
+  
   const handleRegistro = async (UsuarioData) => {
     setLoading(true);
     setError(null);
