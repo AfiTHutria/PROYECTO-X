@@ -4,6 +4,9 @@ import foto from '../assets/marco-de-la-foto.png'
 import gif from '../assets/gif.png'
 import menu from '../assets/menu-puntos.png'
 import emoji from '../assets/sonreir.png'
+
+import Button from '../components/Button'
+import  '../components/EstiloPubli.css'
 export default function Publicaciones() {
     return (
         <>
@@ -11,17 +14,28 @@ export default function Publicaciones() {
                 {/* orden dee publicaciones */}
                 <div className='text-white '>
                     <button className=' w-[50%] text-[20px]  rounded border-1  border-gray-700 p-1'>  For You</button>
-                    <button className='w-[50%] text-[20px] rounded border-1  border-gray-700p-1'>   Following</button>
+                    <button className='w-[50%] text-[20px] rounded border-1  border-gray-700 p-1'>   Following</button>
                 </div>
                 {/* forulario de post */}
                 <div class="composer flex  ">
                     <img src={LOGO} alt="" className='mt-[20px] ml-[20px] mr-[20px] h-[30px] w-[30px] rounded-full ' />
 
-                    <div class="content mt-[20px]  ">
-                        <textarea placeholder="What’s happening?" maxlength="280"></textarea>
 
-                        <div class="actions gap-[10px] flex ">
-                            <div class="icons gap-5 ">
+                    <div className="content mt-[20px]  ">
+                        <form className=' text-[white] flex align-center  ' >
+                            <input className=' postbarra rounded border-1  border-gray-700 p-1 mt-[20px] '
+                                type="text"
+                                placeholder=' Whats happening ?'
+
+                            />
+
+                            <Button  label="Post" variant="postear" type="button" />
+
+                        </form>
+
+
+                        <div className="actions  flex ">
+                            <div className="icons gap-5 ">
                                 <button className='mx-[8px] ' ><img className=' w-[25px] h-[25px] ' src={foto} alt="" /></button>
                                 <button className='mx-[8px] ' ><img className=' w-[25px] h-[25px] ' src={gif} alt="" /></button>
                                 <button className='mx-[8px] ' ><img className=' w-[25px] h-[25px] ' src={menu} alt="" /></button>
