@@ -1,0 +1,7 @@
+@import 'tailwindcss';
+
+.fondo {
+   background-color: black;
+   color: white;
+   overflow: auto ;
+}

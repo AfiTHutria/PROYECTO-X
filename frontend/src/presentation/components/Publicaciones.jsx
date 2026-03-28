@@ -1,57 +1,58 @@
-import React from 'react'
-import LOGO from '../assets/usuario.png'
-import foto from '../assets/marco-de-la-foto.png'
-import gif from '../assets/gif.png'
-import menu from '../assets/menu-puntos.png'
-import emoji from '../assets/sonreir.png'
 
 import Button from '../components/Button'
-import  '../components/EstiloPubli.css'
+import styles from '../components/EstiloPubli.module.css'
+import LOGO from '../assets/LOGO_X.jpeg'
 export default function Publicaciones() {
     return (
         <>
-            <div className=' w-[650px] mt-[20px] rounded border-1  border-gray-700 p-1'>
-                {/* orden dee publicaciones */}
-                <div className='text-white '>
-                    <button className=' w-[50%] text-[20px]  rounded border-1  border-gray-700 p-1'>  For You</button>
-                    <button className='w-[50%] text-[20px] rounded border-1  border-gray-700 p-1'>   Following</button>
+            <div className={styles.caja_post}>
+                {/* botones de follow y for you */}
+                <div className={styles.contenedor_bnt}>
+                    <Button
+                        label="For you"
+                        onClick={() => { navigate("/") }}
+                        variant="fy"
+                        type="button"
+                        title="fy"
+
+                    />
+                    <Button
+                        label="Following"
+                        onClick={() => { navigate("/") }}
+                        variant={styles.fy}
+                        type="button"
+                        title="follow"
+
+                    />
                 </div>
-                {/* forulario de post */}
-                <div class="composer flex  ">
-                    <img src={LOGO} alt="" className='mt-[20px] ml-[20px] mr-[20px] h-[30px] w-[30px] rounded-full ' />
+                {/* form */}
 
+                <div className={styles.contenedor_form}>
 
-                    <div className="content mt-[20px]  ">
-                        <form className=' text-[white] flex align-center  ' >
-                            <input className=' postbarra rounded border-1  border-gray-700 p-1 mt-[20px] '
+                    <div className={styles.formulario}>
+
+                        <img className={styles.foto_perfil} src={LOGO} alt="" />
+                        <form action="post">
+                            <input className={styles.inp}
                                 type="text"
-                                placeholder=' Whats happening ?'
+                                placeholder="what's happening?"
+                            /*value={formData.content}
+                            onChange={(e) => setFormData({ ...formData, content: e.target.value })}*/
 
                             />
-
-                            <Button  label="Post" variant="postear" type="button" />
-
                         </form>
-
-
-                        <div className="actions  flex ">
-                            <div className="icons gap-5 ">
-                                <button className='mx-[8px] ' ><img className=' w-[25px] h-[25px] ' src={foto} alt="" /></button>
-                                <button className='mx-[8px] ' ><img className=' w-[25px] h-[25px] ' src={gif} alt="" /></button>
-                                <button className='mx-[8px] ' ><img className=' w-[25px] h-[25px] ' src={menu} alt="" /></button>
-                                <button className='mx-[8px] ' ><img className=' w-[25px] h-[25px] ' src={emoji} alt="" /></button>
-
-
-                            </div>
-
-                            <button className='mt-[10px] text-[Black] ml-[270px]  border-gray-700 rounded-full h-[40px] w-[70px]'>Post</button>
-                        </div>
                     </div>
                 </div>
                 <div>
+                    <Button
+                        label="post"
+                        onClick={() => { navigate("/") }}
+                        variant={styles.fy}
+                        type="button"
+                        title="follow"
 
+                    />
                 </div>
-
             </div>
         </>
     )

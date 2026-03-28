@@ -1,21 +1,24 @@
 import React from 'react'
 import Logo from '../assets/LOGO_X.jpeg'
 import Lab from '../assets/tubo.png'
-import {RiHome2Line} from "react-icons/ri";
-import {CiSearch} from "react-icons/ci";
-import {IoNotificationsOutline} from "react-icons/io5";
-import {IoPersonAddOutline} from "react-icons/io5";
-import {LuMail} from "react-icons/lu";
-import {IoPersonOutline} from "react-icons/io5";
-import {SlOptions} from "react-icons/sl";
+import { RiHome2Line } from "react-icons/ri";
+import { CiSearch } from "react-icons/ci";
+import { IoNotificationsOutline } from "react-icons/io5";
+import { IoPersonAddOutline } from "react-icons/io5";
+import { LuMail } from "react-icons/lu";
+import { IoPersonOutline } from "react-icons/io5";
+import { SlOptions } from "react-icons/sl";
+import { Navigate, useNavigate } from "react-router-dom";
 import Button from './Button';
+
 export default function Bar() {
+    const navigate = useNavigate();
     return (
         <>
             {/* barra izquierda */}
             <main className='ml-[20%] mr-[30px]  mt-[30px] w-[200px] '>
                 {/* loguito  izq  arriba */}
-               <div className='flex flex-col gap-[12px]'>
+                <div className='flex flex-col gap-[12px]'>
 
                     {/* HOME */}
                     <div className='flex items-center gap-[12px]'>
@@ -49,7 +52,7 @@ export default function Bar() {
 
                     {/* CREATOR STUDIO (IMAGEN) */}
                     <div className='flex items-center gap-[12px]'>
-                        <img src={Lab} alt="" className='h-[28px] w-[28px]' /> 
+                        <img src={Lab} alt="" className='h-[28px] w-[28px]' />
                         <button className='text-white text-[18px]'>Creator Studio</button>
                     </div>
 
@@ -61,8 +64,8 @@ export default function Bar() {
 
                     {/* PERFIL */}
                     <div className='flex items-center gap-[12px]'>
-                        <IoPersonOutline size={28} />
-                        <button className='text-white text-[18px]'>Perfil</button>
+
+                        <button className='text-white text-[18px] flex gap-3 ' onClick={() => { navigate("/Perfil") }}>  <IoPersonOutline size={28} />Perfil</button>
                     </div>
 
                     {/* MÁS OPCIONES */}
@@ -75,7 +78,7 @@ export default function Bar() {
             </main>
 
         </>
-       
+
     )
 }
 

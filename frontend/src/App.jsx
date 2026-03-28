@@ -6,6 +6,7 @@ import "../src/App.css";
 import Registro from "./presentation/pages/Registro.jsx";
 import Login from "./presentation/pages/Login.jsx";
 import Inicio from "./presentation/pages/Inicio.jsx";
+import Perfil from "./presentation/pages/Perfil.jsx";
 
 export default function App() {
   const location = useLocation();
@@ -18,6 +19,7 @@ export default function App() {
         <Route path="/registro" element={<Registro></Registro>} />
         <Route path="/login" element={<Login></Login>} />
         <Route path="/inicio" element={<Inicio></Inicio>} />
+        <Route path="/Perfil" element={<Perfil></Perfil>} />
       </Routes>
 
       {background && (

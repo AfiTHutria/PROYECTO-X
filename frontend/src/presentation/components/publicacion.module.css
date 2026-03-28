@@ -1,17 +1,22 @@
 .cajadepublicacion {
-  display: flex; 
-  flex-direction: row; 
+  display: flex;
+  flex-direction: row;
   gap: 20px;
-
+  width: 650px;
   padding: 20px;
   border: 1px solid #2f3336;
+  margin-top: 2px;
+  margin-right: 30px;
+
+
 }
 
 /* COLUMNA IZQUIERDA */
 .parteIzquierda {
   flex-shrink: 0;
   display: flex;
-  align-items: flex-start; /* avatar arriba */
+  align-items: flex-start;
+  /* avatar arriba */
 }
 
 /* COLUMNA DERECHA */
@@ -96,6 +101,22 @@
   color: red;
 }
 
+/* scroll q esta en home */
+.scroll {
+  height: 700px;
 
+  /* Para Chrome, Safari y Opera */
+  &::-webkit-scrollbar {
+    display: none;
+  }
 
+  /* Para Internet Explorer, Edge antiguo y Firefox */
+  -ms-overflow-style: none;
+  /* IE and Edge */
+  scrollbar-width: none;
+  /* Firefox */
 
+  /* Asegúrate de que el scroll siga funcionando */
+  overflow-y: auto;
+
+}

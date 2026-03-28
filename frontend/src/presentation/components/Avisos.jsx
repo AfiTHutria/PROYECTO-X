@@ -1,13 +1,14 @@
-import React from 'react'
-import LOGO from '../assets/LOGO_X.jpeg'
+
+import styles from '../components/avisos.module.css'
 export default function Avisos() {
     return (
         <>
             <div className=''>
+
                 <div className='h-[50px] w-[300px] ml-[50px] text-white  rounded border-1 border-[gray] p-1'>
-                    <input type="text" placeholder="🔍Search" maxlength="280" />
+                    <input type="text" placeholder="🔍Search" maxLength="280" />
                 </div>
-                <div className=' h-[800px] w-[400px] m-[30px] g-[] p-[20px]  overflow-auto'>
+                <div className={styles.scroll} >
 
 
 
