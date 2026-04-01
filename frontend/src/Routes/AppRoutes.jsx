@@ -3,7 +3,6 @@ import Home from "../presentation/pages/Home/Home";
 import Registro from "../presentation/pages/Auth/Registro";
 import Inicio from "../presentation/pages/Auth/Inicio";
 import Login from "../presentation/pages/Auth/Login";
-import Perfil from "../presentation/pages/perfil/Perfil";
 import ResetPassword from "../presentation/pages/Auth/ResetPassword";
 import { ProtectedRoute } from "../presentation/components/shared/Navigation/Route/ProtectedRoute";
 
