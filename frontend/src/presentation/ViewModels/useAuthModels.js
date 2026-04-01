@@ -1,30 +1,46 @@
 import { useState } from "react";
 import { ApiAuthRepository } from "../../infrastructure/repositories/ApiAuthRepository.js";
 import { useNavigate } from "react-router-dom";
+import { useAuth } from "../../contexts/AuthContext.jsx";
 
-const authRepository = new ApiAuthRepository();
+const authRepoInstance = new ApiAuthRepository();
 
-export function useAuthLogin(usuarioRepository) {
+export function useAuthLogin() {
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(null);
-  const [success, setSuccess] = useState(false);
+  const { setUser, setIsCheckingSession } = useAuth();
+  const navigate = useNavigate();
 
   const handleLogin = async (Credenciales) => {
     setLoading(true);
     setError(null);
+
     try {
-      const result = await authRepository.Login(Credenciales);
-      setSuccess(true);
-      return result;
+      const response = await authRepoInstance.Login(Credenciales);
+      const { success, data } = response.data;
+
+      if (success && data) {
+        setUser(data);
+        if (setIsCheckingSession) setIsCheckingSession(false);
+        
+        navigate("/home");
+      } else {
+        throw new Error("No se recibieron datos de usuario");
+      }
     } catch (err) {
-      setError(err.message);
+      const message = err.response?.data?.message || err.message || "Error al iniciar sesión";
+      setError(message);
     } finally {
       setLoading(false);
     }
   };
-  return { loading, error, success, handleLogin };
+
+  return { loading, error, handleLogin };
 }
 
+  
+
+  
 export function useResetPassword() {
   const navigate = useNavigate(); 
   const [step, setStep] = useState(1);

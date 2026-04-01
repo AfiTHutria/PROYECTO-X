@@ -1,10 +1,10 @@
-import { supabase } from "../../infrastructure/Supabase/supabase";
+import { supabase } from "../../infrastructure/Supabase/supabase.js";
 
 export const AuthMiddleware = async (req, res, next) => {
     const token = req.cookies.access_token;
 
     if(!token){
-        return res.status(401).json({ succes: false, message: "No hay sesion activa. Por favor, inicie sesion."});
+        return res.status(401).json({ success: false, message: "No hay sesion activa. Por favor, inicie sesion."});
     }
 
     try{
@@ -12,13 +12,13 @@ export const AuthMiddleware = async (req, res, next) => {
 
         if (error || !user) {
             res.clearCookie('access_token');
-            return res.status(401).json({ succes: false, message: "Sesión expirada. Por favor, inicie sesión nuevamente."});
+            return res.status(401).json({ success: false, message: "Sesión expirada. Por favor, inicie sesión nuevamente."});
             
         }
         req.user=user;
         next();
     }catch (error){
         res.clearCookie('access_token');
-        return res.status(401).json({ succes: false, message: "Error de autenticación. Por favor, inicie sesión nuevamente."});
+        return res.status(401).json({ success: false, message: "Error de autenticación. Por favor, inicie sesión nuevamente."});
     }
 };

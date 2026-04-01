@@ -6,6 +6,7 @@ import { AuthControllers } from "../Controllers/authControllers.js";
 import { SupabaseUsuarioRepository } from "../../infrastructure/repository/SupabaseUsuarioRepository.js";
 import { ResetPasswordUsuario } from "../../application/Auth/ResetPasswordUsuario.js";
 
+
 const router = express.Router();
 
 
@@ -19,5 +20,6 @@ router.post("/registro", (req, res) => authControllers.Registro(req, res));
 router.post("/login", (req, res) => authControllers.Login(req, res));
 router.post("/reset-password", (req,res) => authControllers.RequestReset(req,res));
 router.post("/complete-reset", (req, res) => authControllers.CompleteReset(req, res)); 
+
 
 export default router;

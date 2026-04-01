@@ -61,6 +61,17 @@ export class SupabaseUsuarioRepository {
             }
         };
     }
+    async findById(userId) {
+        const { data: perfil, error } = await this.supabase
+        .from('usuarios')
+        .select('*') // O los campos específicos que necesites
+        .eq('id', userId)
+        .single();
+
+        if (error || !perfil) return null;
+
+        return perfil;
+    }
     async enviarEmailRecuperacion(email) {
         if (!email) throw new Error("El correo electrónico es requerido.");
 

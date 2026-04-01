@@ -1,0 +1,115 @@
+/* 1. Contenedor principal */
+.container {
+    display: flex;
+    padding: 16px;
+    border-bottom: 1px solid #2f3336;
+    background-color: #000;
+    gap: 12px;
+}
+
+/* 2. Avatar/Logo */
+.avatarSection {
+    flex-shrink: 0;
+}
+
+.avatar, .avatarCircle {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    object-fit: cover;
+}
+
+/* 3. Columna de contenido */
+.contensection {
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    min-width: 0;
+}
+
+/* 4. Textarea: Le damos más aire y corregimos la fuente */
+.textarea {
+    width: 100%;
+    background: transparent;
+    border: none;
+    outline: none;
+    color: #e7e9ea;
+    font-size: 20px;
+    font-family: inherit;
+    resize: none;
+    padding: 8px 0;
+    min-height: 24px;
+    line-height: 24px;
+    margin-bottom: 12px; /* Espacio antes de la línea divisoria */
+}
+
+/* 5. Barra de acciones: Forzamos el tamaño de los iconos */
+.actionsBar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-top: 12px;
+    border-top: 1px solid #2f3336;
+}
+
+/* 6. Iconos: Aquí estaba el error de la imagen (estaban muy pequeños) */
+.iconsGroup {
+    display: flex;
+    gap: 2px;
+    margin-left: -8px;
+}
+
+.actionIcon {
+    color: #1d9bf0;
+    font-size: 20px !important; /* Forzamos el tamaño para que no se vean como puntos */
+    width: 36px;
+    height: 36px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    cursor: pointer;
+    transition: background 0.2s;
+}
+
+.actionIcon:hover {
+    background-color: rgba(29, 155, 240, 0.1);
+}
+
+/* 7. Botón Postear */
+/* Este es el contenedor donde está el botón */
+.btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 8px 16px;
+    border-radius: 9999px; /* Forma de píldora estilo X */
+    font-weight: 700;
+    font-size: 15px;
+    cursor: pointer;
+    border: none;
+    transition: background-color 0.2s, opacity 0.2s;
+    outline: none;
+}
+
+/* La variante que busca tu componente: styles.primary (ya que variant="primary") */
+.primary {
+    background-color: #fdfdfd; /* Azul oficial */
+    color: #000000;
+}
+
+.primary:hover {
+    background-color: #1a8cd8;
+}
+
+/* Estado deshabilitado (cuando no hay texto) */
+.primary:disabled {
+    opacity: 0.5;
+    cursor: default;
+}
+
+/* Opcional: si alguna vez usas variant="secondary" */
+.secondary {
+    background-color: #ffffff;
+    color: #000000;
+}

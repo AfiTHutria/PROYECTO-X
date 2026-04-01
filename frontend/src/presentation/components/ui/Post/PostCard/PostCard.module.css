@@ -1,0 +1,92 @@
+/* PostCard.module.css - Versión Dark Mode */
+
+.card {
+    display: flex;
+    padding: 12px 16px;
+    /* Cambio: Borde oscuro para que no brille */
+    border-bottom: 1px solid #2f3336; 
+    transition: background 0.2s;
+    cursor: pointer;
+    background-color: transparent;
+}
+
+.card:hover {
+    /* Cambio: Un gris muy sutil para el hover en fondo oscuro */
+    background-color: rgba(255, 255, 255, 0.03); 
+}
+
+.avatarContainer {
+    margin-right: 12px;
+}
+
+.avatar {
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    object-fit: cover;
+    background-color: #333; /* Por si la imagen no carga */
+}
+
+.content {
+    flex: 1;
+}
+
+.header {
+    display: flex;
+    gap: 4px;
+    align-items: center;
+    margin-bottom: 2px;
+    flex-wrap: wrap; /* Para que no se amontone en móviles */
+}
+
+.name {
+    font-weight: 700;
+    /* Cambio: Blanco para que resalte en el fondo negro */
+    color: #e7e9ea; 
+}
+
+.username, .date, .dot {
+    /* Cambio: Gris azulado clásico de X */
+    color: #71767b; 
+    font-size: 15px;
+}
+
+.text {
+    font-size: 15px;
+    line-height: 20px;
+    /* Cambio: Blanco roto para el contenido */
+    color: #e7e9ea; 
+    word-break: break-word;
+    white-space: pre-wrap; /* Respeta los saltos de línea */
+}
+
+.actions {
+    display: flex;
+    justify-content: space-between;
+    max-width: 425px;
+    margin-top: 12px;
+    /* Cambio: Color de iconos más suave */
+    color: #71767b; 
+}
+
+.actionItem {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    font-size: 13px;
+    transition: color 0.2s;
+}
+
+/* Efectos de color específicos por acción (estilo X) */
+.actionItem:hover {
+    color: #1d9bf0; /* Azul para comentarios/share */
+}
+
+.heart:hover {
+    color: #f91880; /* Rosado/Rojo para el like */
+}
+
+/* Para asegurar que los iconos tengan un tamaño consistente */
+.actionItem svg {
+    font-size: 18px;
+}
