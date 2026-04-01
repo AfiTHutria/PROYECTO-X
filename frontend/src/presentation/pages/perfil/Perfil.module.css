@@ -1,0 +1,138 @@
+
+/* Header Superior con efecto de desenfoque */
+.header_perfil {
+    display: flex;
+    align-items: center;
+    padding: 8px 16px;
+    position: sticky;
+    top: 0;
+    background-color: rgba(0, 0, 0, 0.75);
+    backdrop-filter: blur(12px);
+    z-index: 10;
+    border-bottom: 1px solid #2f3336;
+}
+
+.info_usuario_header {
+    margin-left: 20px;
+    flex-grow: 1;
+}
+
+.nombre_usuario_header {
+    font-size: 19px;
+    font-weight: 800;
+    margin: 0;
+}
+
+.conteo_posts {
+    font-size: 13px;
+    color: #71767b;
+    margin: 0;
+}
+
+/* Sección Visual */
+.seccion_imagenes {
+    position: relative;
+    width: 100%;
+}
+
+.banner_fondo {
+    width: 100%;
+    height: 200px;
+    background-color: #333639;
+}
+
+.foto_perfil_avatar {
+    border-radius: 50%;
+    border: 4px solid black;
+    width: 140px;
+    height: 140px;
+    position: absolute;
+    bottom: -70px;
+    left: 15px;
+    object-fit: cover;
+    background-color: black;
+}
+
+/* Bloque de Información Detallada */
+.info_detallada {
+    margin-top: 80px; /* Espacio para que el avatar no tape el texto */
+    padding: 0 16px;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.nombre_display {
+    font-size: 20px;
+    font-weight: 800;
+    margin: 0;
+}
+
+.handle_gris {
+    color: #71767b;
+    font-size: 15px;
+    margin: 0;
+}
+
+.fecha_union {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    color: #71767b;
+    font-size: 15px;
+}
+
+.metricas_sociales {
+    display: flex;
+    gap: 20px;
+}
+
+.metrica {
+    font-size: 14px;
+    color: #71767b;
+}
+
+.valor_metrica {
+    color: white;
+    font-weight: bold;
+}
+
+/* --- CLASES PARA EL COMPONENTE BUTTON --- */
+/* (Se activan mediante la prop variant y styles) */
+
+.btn {
+    cursor: pointer;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: background-color 0.2s;
+    border: none;
+    background: transparent;
+    color: white;
+    outline: none;
+}
+
+.atras {
+    width: 36px;
+    height: 36px;
+    font-size: 20px;
+}
+
+.atras:hover {
+    background-color: rgba(239, 243, 244, 0.1);
+}
+
+.buscar {
+    width: 36px;
+    height: 36px;
+    font-size: 18px;
+}
+
+.buscar:hover {
+    background-color: rgba(239, 243, 244, 0.1);
+}
+
+.wrapper_buscar {
+    margin-left: auto;
+}

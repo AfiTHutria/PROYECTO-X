@@ -1,5 +1,5 @@
 
-import Button from './Button';
+import Button from '../components/ui/Button'
 import {CiHeart} from "react-icons/ci";
 import {LuRepeat2} from "react-icons/lu";
 import {FiMessageCircle} from "react-icons/fi";

@@ -1,0 +1,53 @@
+.ContainerLayout {
+  display: flex;
+  justify-content: center;
+  background-color: #000000;
+  color: #eff3f4;
+  min-height: 100vh;
+  width: 100vw; /* Forzamos el ancho de la ventana */
+  margin: 0;
+  overflow-x: hidden; /* Evita el scroll horizontal innecesario */
+}
+
+.LeftColumn {
+  display: flex;
+  justify-content: flex-end; 
+  flex: 1; /* Toma todo el espacio disponible a la izquierda */
+  min-width: 0; 
+}
+
+.SideBar {
+  width: 275px;
+  min-width: 275px;
+  position: sticky;
+  top: 0;
+  height: 100vh;
+  /* Eliminamos cualquier margen que pueda estar empujando */
+  margin: 0; 
+}
+
+.Main {
+  width: 600px;
+  min-width: 600px;
+  max-width: 600px;
+  border-left: 1px solid #2f3336;
+  border-right: 1px solid #2f3336;
+  background-color: #000000;
+  flex-shrink: 0; /* Impide que el feed se encoja */
+}
+
+.RightColumn {
+  display: flex;
+  justify-content: flex-start;
+  flex: 1; /* Toma todo el espacio disponible a la derecha */
+  min-width: 0;
+  padding-left: 20px;
+}
+
+.Widgets {
+  width: 350px;
+  min-width: 350px;
+  position: sticky;
+  top: 0;
+  height: 100vh;
+}

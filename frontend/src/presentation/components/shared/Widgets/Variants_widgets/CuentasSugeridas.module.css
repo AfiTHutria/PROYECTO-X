@@ -1,0 +1,108 @@
+.padreC {
+    display: flex;
+    flex-direction: column;
+    width: 350px;
+    padding: 12px;
+    gap: 15px;
+}
+
+/* Barra de búsqueda */
+.inp {
+    width: 100%;
+    padding: 12px 20px;
+    background-color: #202327;
+    border: 1px solid transparent;
+    border-radius: 9999px;
+    color: white;
+    font-size: 15px;
+    outline: none;
+    transition: background-color 0.2s, border-color 0.2s;
+}
+
+.inp:focus {
+    background-color: black;
+    border-color: #1d9bf0;
+}
+
+/* Contenedor de la tarjeta de sugerencias */
+.cuentas {
+    background-color: #16181c;
+    border-radius: 16px;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+}
+
+.titulo {
+    font-size: 20px;
+    font-weight: 800;
+    padding: 12px 16px;
+    margin: 0;
+}
+
+/* Fila de cuenta individual */
+.cuenta {
+    display: flex;
+    align-items: center;
+    padding: 12px 16px;
+    gap: 12px;
+    transition: background-color 0.2s;
+    cursor: pointer;
+}
+
+.cuenta:hover {
+    background-color: rgba(255, 255, 255, 0.03);
+}
+
+.Perfil_Usuario_Sug {
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    object-fit: cover;
+}
+
+.Datos_Cuenta_Sug {
+    flex: 1;
+}
+
+.Datos_Cuenta_Sug h3 {
+    font-size: 15px;
+    font-weight: 700;
+    margin: 0;
+    color: white;
+}
+
+.Datos_Cuenta_Sug p {
+    font-size: 15px;
+    color: #71767b;
+    margin: 0;
+}
+
+/* Footer de términos */
+.terminos {
+    padding: 0 16px;
+    font-size: 13px;
+    color: #71767b;
+    line-height: 1.6;
+}
+
+/* ESTILOS PARA EL COMPONENTE BUTTON (styles.btn y styles.x) */
+.btn {
+    cursor: pointer;
+    border-radius: 9999px;
+    font-weight: 700;
+    font-size: 14px;
+    padding: 0 16px;
+    height: 32px;
+    border: none;
+    transition: background-color 0.2s;
+}
+
+.x {
+    background-color: #eff3f4;
+    color: #0f1419;
+}
+
+.x:hover {
+    background-color: #d7dbdc;
+}

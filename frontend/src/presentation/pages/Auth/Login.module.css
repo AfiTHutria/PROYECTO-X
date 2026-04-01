@@ -1,0 +1,170 @@
+.overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.6);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+    backdrop-filter: blur(4px); 
+    -webkit-backdrop-filter: blur(4px);
+    
+}
+
+.contador {
+    position: absolute;
+    right: 10px;
+    top: 10px;
+    color: gray;
+    Size: 12px;
+}
+
+
+.modal {
+    background: black;
+    color: white;
+    padding: 30px;
+    border-radius: 10px;
+    width: 450px;
+    height: 500px;
+}
+
+.encabezado {
+  display: flex;
+  align-items: center; 
+  justify-content: center; 
+  position: relative;
+  width: 100%;
+  padding: 10px; 
+}
+
+.logo {
+  height: 30px;
+  width: 30px;
+  
+}
+
+.encabezado button {
+  position: absolute;
+  left: 15px;
+  width: 40px;
+  height: 40px;
+  font-size: 20px;
+  
+  
+  transition: all 0.2s ease-in-out;
+  border: 1px solid transparent; 
+  border-radius: 50%;
+  cursor: pointer;
+}
+
+/* --- Estado HOVER (al pasar el ratón) --- */
+.encabezado button:hover {
+  /* Redondea los bordes en el hover */
+  border-radius: 50%; /* O '8px', '12px' si prefieres esquinas redondeadas pero no un círculo */
+  
+  /* Cambios de color para que se note el hover */
+  background-color: #7a7a7a; /* Un gris muy claro para el fondo */
+  transform: scale(1.1); /* Efecto opcional para agrandarlo un poquito */
+}
+
+.titulo {
+  font-size: 30px;
+  margin-top: 10px;
+  margin-left: 10px;
+  text-align: center;
+}
+
+.continps {
+    position: relative;
+    width: 400px;
+}
+
+.inp {
+    width: 400px;
+    padding: 14px;
+    background: black;
+    color: white;
+    border: 2px solid #1DA1F2;
+    border-radius: 6px;
+    margin: 5px;
+
+}
+.cajaboton {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    margin-top: 12px; 
+}
+.cajaboton:first-of-type {
+    margin-top: 25px;
+}
+.btn {
+    width: 100%;
+    max-width: 300px; 
+    padding: 12px;
+    border-radius: 9999px;
+    font-weight: bold;
+    font-size: 15px;
+    cursor: pointer;
+    transition: background-color 0.2s, border 0.2s;
+    border: 1px solid transparent; 
+}
+
+.primary{
+    background-color: white;
+    color: black;
+}
+.primary:hover{
+  background-color: #e6e6e6;
+}
+.secondary{
+  background-color: transparent;
+    color: white;
+    border: 1px solid #536471;
+}
+.secondary:hover{
+  background-color: #111;
+  border-color: #777;
+}
+.btn:disabled{
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+.Cnotienescuenta {
+    margin-top: 40px; /* Espacio con lo de arriba */
+    display: flex;
+    flex-direction: row; /* Alinea los elementos en línea */
+    justify-content: center; /* Centra toda la frase horizontalmente */
+    align-items: center; /* Alinea verticalmente el texto y el botón */
+    gap: 1px; /* Espacio mínimo para que parezca una sola frase */
+    flex-wrap: wrap; /* Permite que baje de línea en pantallas muy pequeñas */
+    color: #71767b; /* El gris de X para texto secundario */
+    font-size: 15px;
+}
+
+/* Estilo específico para el párrafo de texto */
+.Cnotienescuenta p {
+    margin: 0;
+    padding: 0;
+    line-height: 1; /* Asegura la alineación vertical */
+}
+.third {
+    background-color: transparent;
+    color: #1d9bf0; 
+    border: none;
+    padding: 0;
+    margin: 0;
+    font-size: 15px;
+    font-weight: 400; 
+    cursor: pointer;
+    text-decoration: none;
+    line-height: 1; 
+}
+.third:hover {
+    text-decoration: underline;
+    background-color: transparent;
+}

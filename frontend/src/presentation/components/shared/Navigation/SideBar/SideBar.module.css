@@ -1,0 +1,133 @@
+/* --- CONTENEDOR PRINCIPAL (SIDEBAR) --- */
+.sidebar {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  padding: 10px 12px;
+  background-color: #000000;
+  width: 100%; 
+  box-sizing: border-box;
+  z-index: 100;
+}
+
+/* Contenedor de los enlaces de navegación */
+.navContainer {
+  display: flex;
+  flex-direction: column;
+  gap: 2px; /* Espacio mínimo entre botones */
+  margin-top: 4px;
+  flex-grow: 1; /* Empuja el perfil hacia abajo */
+  width: 100%;
+}
+
+.navItem {
+  width: 100%;
+  display: flex;
+  justify-content: flex-start;
+}
+
+/* --- ESTILO DEL BOTÓN (HITBOX COMPLETA) --- */
+.btn {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 20px; /* Separación entre icono y texto */
+  padding: 12px 16px;
+  width: 100%; /* EXTREMADAMENTE IMPORTANTE: Expande la hitbox al ancho total */
+  background: transparent;
+  border: none;
+  border-radius: 9999px; /* Mantiene la cápsula en el hover */
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+  color: #eff3f4;
+  box-sizing: border-box;
+}
+
+.btn:hover {
+  background-color: rgba(239, 243, 244, 0.1); /* Gris translúcido de X */
+}
+
+/* --- EXCEPCIÓN PARA EL LOGO DE X (ARRIBA) --- */
+/* Solo el primer botón no debe ser ancho completo */
+.sidebar > div:first-child .btn {
+  width: fit-content; 
+  padding: 10px;
+  margin-bottom: 5px;
+  aspect-ratio: 1 / 1; /* Asegura que el hover sea un círculo perfecto */
+}
+
+/* --- ICONOS Y TEXTO --- */
+.icon {
+  font-size: 26px;
+  flex-shrink: 0; /* Evita que el icono se deforme */
+  color: #eff3f4;
+}
+
+.label {
+  font-size: 20px;
+  font-weight: 400;
+  white-space: nowrap; /* Evita que el texto se rompa en 2 líneas */
+  line-height: 1;
+}
+
+/* --- BOTÓN POSTEAR (VARIANTE SECONDARY) --- */
+.secondary {
+  background-color: #eff3f4;
+  color: #000000 !important;
+  width: 90%; /* Un poco más angosto que el borde de la sidebar */
+  margin: 16px 0;
+  justify-content: center;
+  font-size: 17px;
+  font-weight: 700;
+  padding: 14px;
+}
+
+.secondary:hover {
+  background-color: #d7dbdc;
+}
+
+/* --- CAJA DE PERFIL (VARIANTE CAJAPERFIL) --- */
+.cajaperfil {
+  margin-top: auto; /* Truco para pegarlo al fondo */
+  margin-bottom: 10px;
+  width: 100%;
+  padding: 12px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  justify-content: space-between;
+  border-radius: 9999px;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+}
+
+.cajaperfil:hover {
+  background-color: rgba(239, 243, 244, 0.1);
+}
+
+.avatar {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+.TextGroup {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  flex-grow: 1;
+}
+
+.name {
+  color: #eff3f4;
+  font-weight: 700;
+  font-size: 15px;
+}
+
+.handle {
+  color: #71767b;
+  font-weight: 400;
+  font-size: 15px;
+}

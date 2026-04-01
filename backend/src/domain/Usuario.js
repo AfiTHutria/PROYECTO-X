@@ -1,8 +1,8 @@
 export class Usuario {
-    constructor(Nombre,Telefono,FechaNacimiento,Email,Contraseña) {
+    constructor(Nombre,Telefono,FechaCreacion,Email,Contraseña) {
         this.Nombre = Nombre;
         this.Telefono = Telefono;
-        this.FechaNacimiento = FechaNacimiento;
+        this.FechaCreacion = FechaCreacion;
         this.Email = Email;
         this.Contraseña = Contraseña;
     }

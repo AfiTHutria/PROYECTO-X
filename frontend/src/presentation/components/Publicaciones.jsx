@@ -1,7 +1,7 @@
 
-import Button from '../components/Button'
+import Button from '../components/ui/Button'
 import styles from '../components/EstiloPubli.module.css'
-import LOGO from '../assets/LOGO_X.jpeg'
+import LOGO from '../assets/images/LOGO_X.jpeg'
 export default function Publicaciones() {
     return (
         <>

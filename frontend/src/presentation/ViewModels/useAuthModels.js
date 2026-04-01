@@ -1,38 +1,19 @@
 import { useState } from "react";
-import { ApiAuthRepository } from "../../data/repositories/ApiAuthRepository.js";
+import { ApiAuthRepository } from "../../infrastructure/repositories/ApiAuthRepository.js";
+import { useNavigate } from "react-router-dom";
 
-export function useAuthModels(usuarioRepository) {
+const authRepository = new ApiAuthRepository();
+
+export function useAuthLogin(usuarioRepository) {
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(null);
   const [success, setSuccess] = useState(false);
 
-  
-
-  const authRepository = new ApiAuthRepository(usuarioRepository);
-
-  
   const handleLogin = async (Credenciales) => {
     setLoading(true);
     setError(null);
-    try{
-     const result = await authRepository.Login(Credenciales); 
-     setSuccess(true);
-     return result;
-    }catch(err){
-      setError(err.message);
-    }finally{
-      setLoading(false);
-    }
-  }
-
-  
-
-  
-  const handleRegistro = async (UsuarioData) => {
-    setLoading(true);
-    setError(null);
     try {
-      const result = await authRepository.Registro(UsuarioData);
+      const result = await authRepository.Login(Credenciales);
       setSuccess(true);
       return result;
     } catch (err) {
@@ -41,13 +22,44 @@ export function useAuthModels(usuarioRepository) {
       setLoading(false);
     }
   };
-
-  return {
-    loading,
-    error,
-    success,
-    handleRegistro,
-    handleLogin
-  };
+  return { loading, error, success, handleLogin };
 }
 
+export function useResetPassword() {
+  const navigate = useNavigate(); 
+  const [step, setStep] = useState(1);
+  const [resetData, setResetData] = useState({ email: '', newPassword: '', code: '' });
+  const [loading, setLoading] = useState(false);
+  const [error, setError] = useState(null); 
+
+  const sendEmail = async (email) => {
+    setLoading(true);
+    setError(null);
+    try {
+      await authRepository.requestPasswordReset(email); 
+      setResetData((prev) => ({ ...prev, email: email }));
+      setStep(2);
+    } catch (err) {
+      setError(err.message);
+    } finally {
+      setLoading(false);
+    }
+  };
+
+  const finalizeReset = async (password) => {
+    setLoading(true);
+    setError(null);
+    try {
+      await authRepository.resetPassword(password);
+      navigate("/login", { 
+        state: { message: "Contraseña restablecida exitosamente. Por favor, inicia sesión." } 
+      });
+    } catch (err) {
+      setError(err.message);
+    } finally {
+      setLoading(false);
+    }
+  };
+
+  return { step, loading, error, sendEmail, finalizeReset };
+}
