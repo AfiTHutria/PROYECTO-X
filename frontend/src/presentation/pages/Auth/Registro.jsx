@@ -3,7 +3,7 @@ import { useNavigate } from "react-router-dom";
 import { useAuth } from "../../../contexts/AuthContext";
 import Button from '../../components/ui/Button'
 import LOGO from '../../assets/images/LOGO_X.jpeg'
-import styles from './Registro.module.css'; 
+import styles from './Registro.module.css';
 
 export default function Registro() {
     const navigate = useNavigate();
@@ -19,15 +19,15 @@ export default function Registro() {
     return (
         <div className={styles.overlay}>
             <div className={styles.modal}>
-                
+
                 {/* Header del Modal */}
                 <header className={styles.encabezado}>
                     <div className={styles.cerrar_wrapper}>
-                        <Button 
-                            label="✕" 
-                            onClick={() => navigate("/")} 
-                            variant="cerrar" 
-                            styles={styles} 
+                        <Button
+                            label="✕"
+                            onClick={() => navigate("/")}
+                            variant="cerrar"
+                            styles={styles}
                         />
                     </div>
                     <img src={LOGO} alt="X Logo" className={styles.logo} />
@@ -37,10 +37,10 @@ export default function Registro() {
                     <h2 className={styles.titulo}>Crea tu cuenta</h2>
 
                     <form onSubmit={onSubmit} className={styles.formulario}>
-                        
+
                         {/* Campo Nombre */}
                         <div className={styles.continps}>
-                            <input 
+                            <input
                                 className={styles.inp}
                                 name="Nombre"
                                 type="text"
@@ -54,7 +54,7 @@ export default function Registro() {
 
                         {/* Campo Teléfono */}
                         <div className={styles.continps}>
-                            <input 
+                            <input
                                 className={styles.inp}
                                 name="Telefono"
                                 type="tel"
@@ -67,7 +67,8 @@ export default function Registro() {
                         {/* Campo Fecha */}
                         <div className={styles.continps}>
                             <label className={styles.label_fecha}>Fecha de nacimiento</label>
-                            <input 
+                            <input
+                                min="1950-01-01" max="2008-12-31"
                                 className={styles.inp_fecha}
                                 name="FechaNacimiento"
                                 type="date"
@@ -79,7 +80,7 @@ export default function Registro() {
 
                         {/* Campo Email */}
                         <div className={styles.continps}>
-                            <input 
+                            <input
                                 className={styles.inp}
                                 name="Email"
                                 type="email"
@@ -92,7 +93,7 @@ export default function Registro() {
 
                         {/* Campo Password */}
                         <div className={styles.continps}>
-                            <input 
+                            <input
                                 className={styles.inp}
                                 name="Contraseña"
                                 type="password"
@@ -106,9 +107,9 @@ export default function Registro() {
                         {/* Mostrar error si el ViewModel lo devuelve */}
                         {error && <p className={styles.error_msg}>{error}</p>}
 
-                        <button 
-                            className={styles.enviar} 
-                            type="submit" 
+                        <button
+                            className={styles.enviar}
+                            type="submit"
                             disabled={loading}
                         >
                             {loading ? "Registrando..." : "Registrar"}

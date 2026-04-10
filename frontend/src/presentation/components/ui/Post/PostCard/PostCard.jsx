@@ -1,22 +1,24 @@
 import styles from './PostCard.module.css';
 import { RiHeartLine, RiChat1Line, RiRepeatLine, RiShareLine } from "react-icons/ri";
 import LogoDefault from "../../../../../presentation/assets/images/LOGO_X.jpeg";
+import { useState } from 'react';
 
 export default function PostCard({ post }) {
     // Extraemos los datos basándonos en tu respuesta JSON
     const { contenido, created_at, usuarios, imagen_url, likes_count } = post;
-    
-    // Formatear fecha simple (puedes usar date-fns después)
-    const fecha = new Date(created_at).toLocaleDateString();
 
+    // Formatear fecha simple (puedes usar date-fns después)
+
+
+    /*cambiar el orden de llegada de la fecha  recibirla - esperar y convertirla*/
     return (
         <div className={styles.card}>
             {/* Lado Izquierdo: Avatar */}
             <div className={styles.avatarContainer}>
-                <img 
-                    src={usuarios?.avatar_url || LogoDefault} 
-                    alt={usuarios?.Nombre} 
-                    className={styles.avatar} 
+                <img
+                    src={usuarios?.avatar_url || LogoDefault}
+                    alt={usuarios?.Nombre}
+                    className={styles.avatar}
                 />
             </div>
 
@@ -26,7 +28,7 @@ export default function PostCard({ post }) {
                     <span className={styles.name}>{usuarios?.Nombre || "Usuario"}</span>
                     <span className={styles.username}>@{usuarios?.Nombre?.toLowerCase().replace(/\s/g, '')}</span>
                     <span className={styles.dot}>·</span>
-                    <span className={styles.date}>{fecha}</span>
+                    <span className={styles.date}>{created_at}</span>
                 </div>
 
                 <div className={styles.text}>
