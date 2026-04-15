@@ -106,8 +106,19 @@ export default function Home() {
 
   // 2. Función para actualizar el Feed instantáneamente al crear un post
   const handleNewPost = (nuevoPost) => {
-    // El nuevo post viene del editor, lo ponemos de primero
-    setPosts((prevPosts) => [nuevoPost, ...prevPosts]);
+    const base = nuevoPost?.data ?? nuevoPost;
+    if (!base?.id) return;
+
+    const normalized = {
+      ...base,
+      id_publicacion_raiz: base.id_publicacion_raiz ?? base.id,
+      liked_by_me: base.liked_by_me ?? false,
+      comentarios_count: base.comentarios_count ?? 0,
+      reposts_count: base.reposts_count ?? 0,
+      likes_count: base.likes_count ?? 0,
+    };
+
+    setPosts((prevPosts) => [normalized, ...prevPosts]);
   };
 
   return (
