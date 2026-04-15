@@ -19,7 +19,7 @@ export class Publicacion {
     // (Ejemplo: el límite de 280 caracteres que definimos en el dominio)
     const nuevaPublicacion = new PublicacionEntity({
       id_usuario,
-      contenido: contenido.trim()
+      contenido: contenido.trim(),
     });
 
     // Ejecutamos validación propia del dominio si existe
@@ -27,15 +27,12 @@ export class Publicacion {
 
     // 3. Persistencia a través del repositorio inyectado
     return await this.repository.crear(
-      nuevaPublicacion.id_usuario, 
-      nuevaPublicacion.contenido
+      nuevaPublicacion.id_usuario,
+      nuevaPublicacion.contenido,
     );
   }
 
-  async obtenerFeed() {
-    // Obtenemos todas las publicaciones usando el repositorio
-    return await this.repository.obtenerTodas();
+  async obtenerFeed(idUsuario = null) {
+    return await this.repository.obtenerTodasEnriquecidas(idUsuario);
   }
-
-  
 }

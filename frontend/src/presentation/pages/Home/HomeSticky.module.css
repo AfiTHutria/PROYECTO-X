@@ -1,0 +1,13 @@
+.MainContent {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  min-height: 100%;
+}
+
+.FeedContainer {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+}
+

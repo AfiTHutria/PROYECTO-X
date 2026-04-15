@@ -1,0 +1,97 @@
+.container {
+  padding: 16px;
+}
+
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  padding-bottom: 12px;
+  border-bottom: 1px solid #2f3336;
+  margin-bottom: 16px;
+}
+
+.title {
+  margin: 0;
+  font-size: 20px;
+  font-weight: 800;
+  color: #e7e9ea;
+}
+
+.placeholder {
+  color: #71767b;
+  padding: 24px 0;
+}
+
+.error {
+  border: 1px solid rgba(244, 33, 46, 0.35);
+  background: rgba(244, 33, 46, 0.08);
+  color: #f4212e;
+  padding: 10px 12px;
+  border-radius: 12px;
+  margin-bottom: 12px;
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.grid2 {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 14px;
+}
+
+.row {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.label {
+  color: #71767b;
+  font-size: 13px;
+}
+
+.input,
+.textarea {
+  border-radius: 12px;
+  border: 1px solid #2f3336;
+  background: #000;
+  color: #e7e9ea;
+  padding: 10px 12px;
+  outline: none;
+}
+
+.textarea {
+  resize: vertical;
+}
+
+/* Button.jsx expects styles.btn and styles.secondary */
+.btn {
+  border: 0;
+  border-radius: 999px;
+  padding: 10px 14px;
+  font-weight: 800;
+  cursor: pointer;
+}
+
+.secondary {
+  background: #eff3f4;
+  color: #000 !important;
+}
+
+.secondary:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+@media (max-width: 720px) {
+  .grid2 {
+    grid-template-columns: 1fr;
+  }
+}
+

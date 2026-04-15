@@ -1,10 +1,13 @@
-import { Routes, Route, useNavigate, useLocation,Navigate } from "react-router-dom";
+import { Routes, Route, useLocation,Navigate } from "react-router-dom";
 import Home from "../presentation/pages/Home/Home";
 import Registro from "../presentation/pages/Auth/Registro";
 import Inicio from "../presentation/pages/Auth/Inicio";
+import Perfil from "../presentation/pages/Perfil/Perfil";
 import Login from "../presentation/pages/Auth/Login";
 import ResetPassword from "../presentation/pages/Auth/ResetPassword";
 import { ProtectedRoute } from "../presentation/components/shared/Navigation/Route/ProtectedRoute";
+import ConfigPerfil from "../presentation/pages/Perfil/ConfigPerfil";
+import PublicPerfil from "../presentation/pages/Perfil/PublicPerfil";
 
 export default function AppRoutes() {
   const location = useLocation();
@@ -23,6 +26,8 @@ export default function AppRoutes() {
         <Route element={<ProtectedRoute />}>
           <Route path="/home" element={<Home />} />
           <Route path="/perfil" element={<Perfil />} />
+          <Route path="/settings/profile" element={<ConfigPerfil />} />
+          <Route path="/u/:id" element={<PublicPerfil />} />
         </Route>
 
         {/* Redirección por si escriben cualquier cosa loca */}

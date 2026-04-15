@@ -6,9 +6,10 @@ export class PublicacionControllers {
     async crearPublicacion(req, res) {
         try {
             const { id_usuario, contenido } = req.body;
+            const idUsuarioFinal = req.user?.id || id_usuario;
 
             // Llamamos a la capa de aplicación usando la instancia inyectada
-            const nuevaPublicacion = await this.publicacionUseCase.ejecutar(id_usuario, contenido);
+            const nuevaPublicacion = await this.publicacionUseCase.ejecutar(idUsuarioFinal, contenido);
 
             return res.status(201).json({
                 success: true,
@@ -24,8 +25,8 @@ export class PublicacionControllers {
 
     async listarPublicaciones(req, res) {
         try {
-            // Llamamos al método del caso de uso
-            const publicaciones = await this.publicacionUseCase.obtenerFeed();
+            const idUsuario = req.user?.id || null;
+            const publicaciones = await this.publicacionUseCase.obtenerFeed(idUsuario);
             
             return res.status(200).json({
                 success: true,

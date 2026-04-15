@@ -50,4 +50,33 @@ export class SessionControllers {
             res.status(500).json({ success: false, message: "Error al cerrar sesión." });
         }
     }
+
+    async refreshToken(req, res) {
+        try {
+            const refreshToken = req.cookies.refresh_token;
+            const session = await this.refreshTokenUseCase.execute(refreshToken);
+            if (!session) {
+                return res.status(401).json({ success: false, message: "No se pudo refrescar la sesión." });
+            }
+
+            res.cookie('access_token', session.accessToken, {
+                httpOnly: true,
+                secure: process.env.NODE_ENV === 'production',
+                sameSite: 'lax',
+                maxAge: 1000 * 60 * 60 * 24,
+                path: '/'
+            });
+            res.cookie('refresh_token', session.refreshToken, {
+                httpOnly: true,
+                secure: process.env.NODE_ENV === 'production',
+                sameSite: 'lax',
+                maxAge: 1000 * 60 * 60 * 24 * 7,
+                path: '/'
+            });
+
+            return res.status(200).json({ success: true });
+        } catch (error) {
+            return res.status(500).json({ success: false, message: "Error al refrescar sesión." });
+        }
+    }
 }

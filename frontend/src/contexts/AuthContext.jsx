@@ -82,7 +82,7 @@ export const AuthProvider = ({children}) =>{
     };
     
     return(
-    <AuthContext.Provider value={{TempData,updateTempData,registerUser,loading,error,user,setUser,logout,isCheckingSession}}>
+    <AuthContext.Provider value={{TempData,updateTempData,registerUser,loading,error,user,setUser,logout,isCheckingSession,setIsCheckingSession,verifySession}}>
         {isCheckingSession ? (
             <LoadingScreen />
         ) : children}

@@ -9,7 +9,7 @@ import { PublicacionRepository } from "../../../../../infrastructure/repositorie
 export default function PostEditor({ onPostCreated }) {
     // Corregido: isCheckingSession (chequear se escribe con 'ck')
     
-    const { user, isCheakingSession } = useAuth();
+    const { user, isCheckingSession } = useAuth();
     const [content, setContent] = useState("");
     const [loading, setLoading] = useState(false);
     const textareaRef = useRef(null);
@@ -41,7 +41,7 @@ export default function PostEditor({ onPostCreated }) {
         }
     };
 
-    if (isCheakingSession) return null;
+    if (isCheckingSession) return null;
 
     return (
         <div className={styles.container}>

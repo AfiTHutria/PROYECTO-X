@@ -7,18 +7,29 @@ import { IoPersonAddOutline, IoPersonOutline } from "react-icons/io5";
 import { useNavigate } from "react-router-dom";
 import { useAuth } from "../../../../../contexts/AuthContext"; // Importamos el hook
 import Button from "../../../ui/Button";
+import { useEffect, useRef, useState } from "react";
 
 export default function Bar() {
   const navigate = useNavigate();
   const { user, logout } = useAuth(); // Extraemos el usuario y el logout del contexto
+  const [menuOpen, setMenuOpen] = useState(false);
+  const menuRef = useRef(null);
 
-  // Función para manejar el clic en el perfil (puedes mostrar un menú o desloguear)
-  const handleProfileClick = () => {
-    // Por ahora, si quieres que al hacer clic se abra una opción de logout
-    if (window.confirm("¿Deseas cerrar sesión?")) {
-      logout();
-    }
-  };
+  const handleProfileClick = () => setMenuOpen((v) => !v);
+
+  useEffect(() => {
+    const onDown = (e) => {
+      if (!menuRef.current) return;
+      if (!menuRef.current.contains(e.target)) setMenuOpen(false);
+    };
+    document.addEventListener("mousedown", onDown);
+    return () => document.removeEventListener("mousedown", onDown);
+  }, []);
+
+const nombre = user?.Nombre || "Usuario";
+const username =
+  user?.username ||
+  (nombre || "usuario").toLowerCase().replace(/\s/g, "");
 
   return (
     <main className={styles.sidebar}>
@@ -127,7 +138,7 @@ export default function Bar() {
 
         {/* CAJA DE PERFIL DINÁMICA */}
         {user && (
-          <div className={styles.profileBoxContainer}>
+          <div className={styles.profileBoxContainer} ref={menuRef}>
             <Button
               onClick={handleProfileClick}
               label={
@@ -140,8 +151,8 @@ export default function Bar() {
 
                   <div className={styles.TextGroup}>
                     {/* Usamos los datos reales del objeto user */}
-                    <span className={styles.name}>{user.Nombre || 'Usuario'}</span>
-                    <span className={styles.handle}>@{user.Nombre?.toLowerCase().replace(/\s/g, '') || 'usuario'}</span>
+                    <span className={styles.name}>{nombre}</span>
+                    <span className={styles.handle}>@{username}</span>
                   </div>
 
                   <RiMoreLine className={styles.icon}/>
@@ -150,6 +161,31 @@ export default function Bar() {
               variant="cajaperfil"
               styles={styles}
             />
+
+            {menuOpen && (
+              <div className={styles.profileMenu} role="menu" aria-label="Menú de usuario">
+                <button
+                  type="button"
+                  className={styles.profileMenuItem}
+                  onClick={() => {
+                    setMenuOpen(false);
+                    navigate("/settings/profile");
+                  }}
+                >
+                  Configurar perfil
+                </button>
+                <button
+                  type="button"
+                  className={`${styles.profileMenuItem} ${styles.profileMenuDanger}`}
+                  onClick={() => {
+                    setMenuOpen(false);
+                    logout();
+                  }}
+                >
+                  Cerrar sesión
+                </button>
+              </div>
+            )}
           </div>
         )}
       </nav>

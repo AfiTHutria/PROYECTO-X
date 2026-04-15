@@ -90,3 +90,149 @@
 .actionItem svg {
     font-size: 18px;
 }
+
+.actionBtn {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    font-size: 13px;
+    border: 0;
+    background: transparent;
+    padding: 0;
+    color: inherit;
+    cursor: pointer;
+    transition: color 0.2s;
+}
+
+.actionBtn:disabled {
+    opacity: 0.45;
+    cursor: not-allowed;
+}
+
+.actionBtn svg {
+    font-size: 18px;
+}
+
+.actionBtn:hover:not(:disabled) {
+    color: #1d9bf0;
+}
+
+.heart.liked {
+    color: #f91880;
+}
+
+.heart.liked:hover:not(:disabled) {
+    color: #f91880;
+}
+
+.repostBanner {
+    color: #71767b;
+    font-size: 13px;
+    margin-bottom: 6px;
+}
+
+.quoted {
+    margin-top: 10px;
+    border: 1px solid #2f3336;
+    border-radius: 12px;
+    padding: 10px 12px;
+}
+
+.quotedHeader {
+    display: flex;
+    gap: 6px;
+    align-items: center;
+    flex-wrap: wrap;
+    margin-bottom: 6px;
+}
+
+.quotedText {
+    font-size: 15px;
+    line-height: 20px;
+    color: #e7e9ea;
+    white-space: pre-wrap;
+    word-break: break-word;
+}
+
+.comments {
+    margin-top: 12px;
+    border-top: 1px solid #2f3336;
+    padding-top: 12px;
+}
+
+.commentsHint {
+    color: #71767b;
+    font-size: 13px;
+    margin-bottom: 10px;
+}
+
+.commentList {
+    list-style: none;
+    padding: 0;
+    margin: 0 0 10px 0;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.commentItem {
+    border: 1px solid #2f3336;
+    border-radius: 10px;
+    padding: 10px 12px;
+}
+
+.commentMeta {
+    display: flex;
+    justify-content: space-between;
+    gap: 10px;
+    align-items: baseline;
+    margin-bottom: 6px;
+    color: #e7e9ea;
+    font-size: 13px;
+}
+
+.commentDate {
+    color: #71767b;
+    font-size: 12px;
+}
+
+.commentBody {
+    color: #e7e9ea;
+    font-size: 14px;
+    line-height: 18px;
+    white-space: pre-wrap;
+    word-break: break-word;
+}
+
+.commentForm {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.commentInput {
+    width: 100%;
+    resize: vertical;
+    border-radius: 10px;
+    border: 1px solid #2f3336;
+    background: #000;
+    color: #e7e9ea;
+    padding: 10px 12px;
+    outline: none;
+}
+
+.commentSubmit {
+    align-self: flex-end;
+    border: 0;
+    border-radius: 999px;
+    padding: 8px 14px;
+    background: #1d9bf0;
+    color: #fff;
+    font-weight: 700;
+    cursor: pointer;
+}
+
+.commentSubmit:disabled {
+    opacity: 0.45;
+    cursor: not-allowed;
+}

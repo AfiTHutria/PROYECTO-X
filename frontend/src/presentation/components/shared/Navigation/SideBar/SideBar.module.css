@@ -131,3 +131,41 @@
   font-weight: 400;
   font-size: 15px;
 }
+
+.profileBoxContainer {
+  position: relative;
+}
+
+.profileMenu {
+  position: absolute;
+  bottom: 62px;
+  left: 0;
+  width: 100%;
+  border: 1px solid #2f3336;
+  border-radius: 14px;
+  background: #000;
+  box-shadow: 0 12px 36px rgba(0, 0, 0, 0.6);
+  overflow: hidden;
+  z-index: 200;
+}
+
+.profileMenuItem {
+  width: 100%;
+  padding: 12px 14px;
+  background: transparent;
+  border: 0;
+  cursor: pointer;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  color: #eff3f4;
+  font-size: 14px;
+}
+
+.profileMenuItem:hover {
+  background: rgba(239, 243, 244, 0.08);
+}
+
+.profileMenuDanger {
+  color: #f4212e;
+}
