@@ -4,7 +4,6 @@ import Registro from "../presentation/pages/Auth/Registro";
 import Inicio from "../presentation/pages/Auth/Inicio";
 import Perfil from "../presentation/pages/Perfil/Perfil";
 import Login from "../presentation/pages/Auth/Login";
-import Perfil from "../presentation/pages/perfil/perfil";
 import ResetPassword from "../presentation/pages/Auth/ResetPassword";
 
 import { ProtectedRoute } from "../presentation/components/shared/Navigation/Route/ProtectedRoute";
