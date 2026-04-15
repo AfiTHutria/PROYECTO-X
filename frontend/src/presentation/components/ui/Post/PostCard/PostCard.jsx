@@ -16,170 +16,32 @@ function raizDe(post) {
   return post.id_publicacion_raiz ?? post.id;
 }
 
-export default function PostCard({ post, currentUserId, onPatchByRaiz, onPrependPost }) {
-  const navigate = useNavigate();
-  const raiz = useMemo(() => raizDe(post), [post]);
+export default function PostCard({ post }) {
+    // Extraemos los datos basándonos en tu respuesta JSON
+    const { contenido, created_at, usuarios, imagen_url, likes_count } = post;
+    
+    // Formatear fecha simple (puedes usar date-fns después)
+    const fecha = new Date(created_at).toLocaleDateString();
 
-  const original = post.original_publicacion;
-  const isRepost = Boolean(post.id_publicacion_original);
+    return (
+        <div className={styles.card}>
+            {/* Lado Izquierdo: Avatar */}
+            <div className={styles.avatarContainer}>
+                <img 
+                    src={usuarios?.avatar_url || LogoDefault} 
+                    alt={usuarios?.Nombre} 
+                    className={styles.avatar} 
+                />
+            </div>
 
-  const {
-    contenido,
-    created_at,
-    usuarios,
-    imagen_url,
-    likes_count = 0,
-    comentarios_count = 0,
-    reposts_count = 0,
-    liked_by_me = false,
-  } = post;
-
-  const fecha = new Date(created_at).toLocaleDateString();
-
-  const [showComments, setShowComments] = useState(false);
-  const [comments, setComments] = useState([]);
-  const [loadingComments, setLoadingComments] = useState(false);
-  const [commentText, setCommentText] = useState("");
-
-  const [likeBusy, setLikeBusy] = useState(false);
-  const [repostBusy, setRepostBusy] = useState(false);
-  const [commentBusy, setCommentBusy] = useState(false);
-
-  useEffect(() => {
-    socket.emit("publicacion:join", { publicacionIdRaiz: raiz });
-    return () => socket.emit("publicacion:leave", { publicacionIdRaiz: raiz });
-  }, [raiz]);
-
-  useEffect(() => {
-    if (!showComments) return;
-
-    let cancelled = false;
-    (async () => {
-      setLoadingComments(true);
-      try {
-        const data = await PublicacionRepository.listarComentarios(post.id);
-        if (!cancelled) setComments(data.comentarios || []);
-      } catch {
-        if (!cancelled) setComments([]);
-      } finally {
-        if (!cancelled) setLoadingComments(false);
-      }
-    })();
-
-    return () => {
-      cancelled = true;
-    };
-  }, [showComments, post.id]);
-
-  useEffect(() => {
-    if (!showComments) return;
-
-    function onComment(payload) {
-      if (payload.publicacionIdRaiz !== raiz) return;
-      if (!payload.comentario?.id) return;
-
-      setComments((prev) => {
-        if (prev.some((c) => c.id === payload.comentario.id)) return prev;
-        return [...prev, payload.comentario];
-      });
-    }
-
-    socket.on("publicacion:comentario", onComment);
-    return () => socket.off("publicacion:comentario", onComment);
-  }, [showComments, raiz]);
-
-  const textoPrincipal = (contenido || "").trim();
-  const mostrarTextoPrincipal = !isRepost || textoPrincipal.length > 0;
-
-  async function handleLike(e) {
-    e.stopPropagation();
-    if (!currentUserId || likeBusy) return;
-
-    const prevLiked = Boolean(liked_by_me);
-    const prevCount = Number(likes_count || 0);
-
-    const nextLiked = !prevLiked;
-    const nextCount = Math.max(0, prevCount + (nextLiked ? 1 : -1));
-
-    onPatchByRaiz?.(raiz, { liked_by_me: nextLiked, likes_count: nextCount });
-
-    setLikeBusy(true);
-    try {
-      const result = await PublicacionRepository.toggleLike(post.id);
-      onPatchByRaiz?.(result.idRaiz, {
-        likes_count: result.likes_count,
-        liked_by_me: result.liked,
-      });
-    } catch {
-      onPatchByRaiz?.(raiz, { liked_by_me: prevLiked, likes_count: prevCount });
-    } finally {
-      setLikeBusy(false);
-    }
-  }
-
-  async function handleRepost(e) {
-    e.stopPropagation();
-    if (!currentUserId || repostBusy) return;
-
-    setRepostBusy(true);
-    try {
-      const result = await PublicacionRepository.repost(post.id);
-      const nuevo = result.repost;
-      if (nuevo?.id) onPrependPost?.(nuevo);
-      onPatchByRaiz?.(result.idRaiz, { reposts_count: result.reposts_count });
-    } finally {
-      setRepostBusy(false);
-    }
-  }
-
-  async function handleSubmitComment(e) {
-    e.preventDefault();
-    e.stopPropagation();
-    if (!currentUserId || commentBusy) return;
-    if (!commentText.trim()) return;
-
-    setCommentBusy(true);
-    try {
-      const result = await PublicacionRepository.crearComentario(post.id, commentText);
-      setComments((prev) => [...prev, result.comentario]);
-      setCommentText("");
-      onPatchByRaiz?.(result.idRaiz, { comentarios_count: result.comentarios_count });
-    } finally {
-      setCommentBusy(false);
-    }
-  }
-
-  function toggleComments(e) {
-    e.stopPropagation();
-    setShowComments((v) => !v);
-  }
-
-  return (
-    <div
-      className={styles.card}
-      onClick={() => {
-        if (post?.usuarios?.id) navigate(`/u/${post.usuarios.id}`);
-      }}
-    >
-      <div className={styles.avatarContainer}>
-        <img
-          src={usuarios?.avatar_url || LogoDefault}
-          alt={usuarios?.Nombre}
-          className={styles.avatar}
-        />
-      </div>
-
-      <div className={styles.content}>
-        {isRepost && <div className={styles.repostBanner}>Repost</div>}
-
-        <div className={styles.header}>
-          <span className={styles.name}>{usuarios?.Nombre || "Usuario"}</span>
-          <span className={styles.username}>
-            @{usuarios?.Nombre?.toLowerCase().replace(/\s/g, "")}
-          </span>
-          <span className={styles.dot}>·</span>
-          <span className={styles.date}>{fecha}</span>
-        </div>
+            {/* Lado Derecho: Contenido */}
+            <div className={styles.content}>
+                <div className={styles.header}>
+                    <span className={styles.name}>{usuarios?.Nombre || "Usuario"}</span>
+                    <span className={styles.username}>@{usuarios?.Nombre?.toLowerCase().replace(/\s/g, '')}</span>
+                    <span className={styles.dot}>·</span>
+                    <span className={styles.date}>{fecha}</span>
+                </div>
 
         {mostrarTextoPrincipal && <div className={styles.text}>{contenido}</div>}
 

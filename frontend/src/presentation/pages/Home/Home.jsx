@@ -39,7 +39,7 @@ export default function Home() {
       try {
         setLoading(true);
         const response = await PublicacionRepository.listar();
-        
+
         // Verificamos si la data viene en .data (por Axios/Backend) o directa
         const dataFinal = response?.data ?? response;
         
@@ -106,42 +106,31 @@ export default function Home() {
 
   // 2. Función para actualizar el Feed instantáneamente al crear un post
   const handleNewPost = (nuevoPost) => {
-    const base = nuevoPost?.data ?? nuevoPost;
-    if (!base?.id) return;
-
-    const normalized = {
-      ...base,
-      id_publicacion_raiz: base.id_publicacion_raiz ?? base.id,
-      liked_by_me: base.liked_by_me ?? false,
-      comentarios_count: base.comentarios_count ?? 0,
-      reposts_count: base.reposts_count ?? 0,
-      likes_count: base.likes_count ?? 0,
-    };
-
-    setPosts((prevPosts) => [normalized, ...prevPosts]);
+    // El nuevo post viene del editor, lo ponemos de primero
+    setPosts((prevPosts) => [nuevoPost, ...prevPosts]);
   };
 
   return (
     <Layout>
       {/* Pestañas Superiores */}
       <section className={styles.Parati}>
-        <div 
-          className={`${styles.TabItem} ${step === 1 ? styles.active : ""}`} 
+        <div
+          className={`${styles.TabItem} ${step === 1 ? styles.active : ""}`}
           onClick={() => setStep(1)}
         >
-          <Button 
-            label={<div className={styles.Texto}><p>Para ti</p></div>} 
-            styles={styles} 
-            title="Para ti" 
+          <Button
+            label={<div className={styles.Texto}><p>Para ti</p></div>}
+            styles={styles}
+            title="Para ti"
           />
         </div>
-        <div 
-          className={`${styles.TabItem} ${step === 2 ? styles.active : ""}`} 
+        <div
+          className={`${styles.TabItem} ${step === 2 ? styles.active : ""}`}
           onClick={() => setStep(2)}
         >
-          <Button 
-            label={<div className={styles.Texto}><p>Siguiendo</p></div>} 
-            styles={styles} 
+          <Button
+            label={<div className={styles.Texto}><p>Siguiendo</p></div>}
+            styles={styles}
             title="Seguidos"
           />
         </div>
@@ -170,8 +159,8 @@ export default function Home() {
             ))
           ) : (
             <div className={styles.FeedPlaceholder}>
-              {step === 1 
-                ? "No hay publicaciones globales aún." 
+              {step === 1
+                ? "No hay publicaciones globales aún."
                 : "No sigues a nadie o no hay publicaciones."}
             </div>
           )}
