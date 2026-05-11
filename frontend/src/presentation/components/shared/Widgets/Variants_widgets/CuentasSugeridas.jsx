@@ -3,11 +3,12 @@ import styles from "./CuentasSugeridas.module.css"; // Apuntando al nuevo archiv
 import LOGO from '../../../../assets/images/LOGO_X.jpeg'
 import Button from '../../../ui/Button'
 import { useNavigate } from "react-router-dom";
-
+import { UsuarioRepository } from "../../../../../infrastructure/repositories/UsuarioRepository";
 export default function CuentasSugeridas() {
   const navigate = useNavigate();
 
   return (
+    
     <aside className={styles.padreC}>
       <input className={styles.inp} type="text" placeholder="🔍 Search" />
 

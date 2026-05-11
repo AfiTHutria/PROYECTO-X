@@ -25,7 +25,6 @@ export default function PostCard({ post, currentUserId, onPatchByRaiz, onPrepend
 
   const {
     contenido,
-    created_at,
     usuarios,
     imagen_url,
     likes_count = 0,
@@ -34,7 +33,6 @@ export default function PostCard({ post, currentUserId, onPatchByRaiz, onPrepend
     liked_by_me = false,
   } = post;
 
-  const fecha = new Date(created_at).toLocaleDateString();
 
   const [showComments, setShowComments] = useState(false);
   const [comments, setComments] = useState([]);
@@ -151,7 +149,7 @@ export default function PostCard({ post, currentUserId, onPatchByRaiz, onPrepend
             @{usuarios?.Nombre?.toLowerCase().replace(/\s/g, "")}
           </span>
           <span className={styles.dot}>·</span>
-          <span className={styles.date}>{fecha}</span>
+          
         </div>
 
         {mostrarTextoPrincipal && <div className={styles.text}>{contenido}</div>}
